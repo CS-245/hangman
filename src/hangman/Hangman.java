@@ -14,8 +14,6 @@ package hangman;
 import java.awt.event.*;
 import javax.swing.*;
 
-
-
 public class Hangman{
     /**
      * @param args the command line arguments
@@ -41,27 +39,28 @@ public class Hangman{
         teamText.setText("By: Team Pasta");  
 
         
-        JButton btnPC = new JButton("Place Holder Button");  
         JButton playButton = new JButton("Play");  
         JButton highScoreButton = new JButton("High Score");  
         JButton creditsButton = new JButton("Credits");  
 
         titleText.setBounds(250,100, 150,50);
-        btnPC.setBounds(250,150, 150,50);
         teamText.setBounds(250,300, 150,50);
         
         playButton.setBounds(500,275,95,30);  
         highScoreButton.setBounds(500,300,95,30);  
         creditsButton.setBounds(500,325,95,30);  
+        
+        new java.util.Timer().schedule( 
+            new java.util.TimerTask() {
+                @Override
+                public void run() {
+                    firstFrame.setVisible(false);
+                    mainMenuFrame.setVisible(true); // Main Form to show after the Login Form..
+                }
+            }, 
+            3000 
+        );
 
-
-        btnPC.addActionListener(new ActionListener() 
-        {
-            public void actionPerformed(ActionEvent e) {
-                firstFrame.setVisible(false);
-                mainMenuFrame.setVisible(true); // Main Form to show after the Login Form..
-            }
-        });
 
         
         mainMenuFrame.add(playButton); 
@@ -69,7 +68,6 @@ public class Hangman{
         mainMenuFrame.add(creditsButton); 
         
         firstFrame.add(titleText);  
-        firstFrame.add(btnPC);
         firstFrame.add(teamText);
                 
         firstFrame.setSize(600,400);
@@ -82,6 +80,4 @@ public class Hangman{
         firstFrame.setVisible(true); 
 
     }
-    
-    
 }
