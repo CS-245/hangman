@@ -11,6 +11,7 @@
 ****************************************************************/ 
 package hangman;
 
+import java.awt.Font;
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -34,6 +35,7 @@ public class Hangman{
         mainMenuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 
         final JLabel titleText=new JLabel();
+        titleText.setFont(new Font("Serif", Font.BOLD, 20));
         final JLabel teamText=new JLabel();  
         titleText.setText("CS245 Quarter Project"); 
         teamText.setText("By: Team Pasta");  
@@ -43,7 +45,7 @@ public class Hangman{
         JButton highScoreButton = new JButton("High Score");  
         JButton creditsButton = new JButton("Credits");  
 
-        titleText.setBounds(250,100, 150,50);
+        titleText.setBounds(200,50, 300,150);
         teamText.setBounds(250,300, 150,50);
         
         playButton.setBounds(500,275,95,30);  
