@@ -1,29 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/***************************************************************
+* file: Hangman.java
+* author: Lenny Yang, Rachel Frodsham, Jenna Barrett
+* class: CS245 – Graphic User Interface (GUI)
+*
+* assignment: Point and Click Game – v.1.0
+* date last modified: 10/1/2017
+*
+* purpose: This program creates the hangman game with Java code
+*
+****************************************************************/ 
 package hangman;
 
 import java.awt.event.*;
 import javax.swing.*;
 
 
-/**
- *
- * @author lennyyang
- */
+
 public class Hangman{
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         Hangman();
+         hangman();
     }
     
     
-
-    private static void Hangman() {
+    // method: hangman()
+    // purpose: create windows that make the Hangman game
+    private static void hangman() {
         
         JFrame firstFrame = new JFrame("Title"); 
         JFrame mainMenuFrame = new JFrame("Hangman"); 
