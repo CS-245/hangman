@@ -31,14 +31,16 @@ public class Hangman{
         
         //Frames
         JFrame titleFrame = new JFrame("Title"); 
-        JFrame mainMenuFrame = new JFrame("Hangman"); 
+        JFrame mainMenuFrame = new JFrame("Main Menu"); 
         JFrame creditsFrame = new JFrame("Credits"); 
+        JFrame highScoreFrame = new JFrame("High Scores");
         
 
         creditsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         titleFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         mainMenuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-
+        highScoreFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                
         //Labels
         final JLabel titleText = new JLabel();
         final JLabel teamText = new JLabel();  
@@ -46,24 +48,31 @@ public class Hangman{
         final JLabel lennyYang = new JLabel();
         final JLabel rachelFrodsham = new JLabel();
         final JLabel titleCredit = new JLabel();
+        final JLabel highScores = new JLabel();
+
 
         ImageIcon image = new ImageIcon("Images/pasta.png");
         JLabel imageLabel = new JLabel(image); 
 
-        titleText.setFont(new Font("Serif", Font.BOLD, 20));
         titleText.setText("CS245 Quarter Project"); 
-        titleCredit.setFont(new Font("Serif", Font.BOLD, 20));
         titleCredit.setText("Credits");
         teamText.setText("By: Team Pasta");  
         jennaBarrett.setText("Jenna Barret, ");
         lennyYang.setText("Lenny Yang, ");
         rachelFrodsham.setText("Rachel Frodsham, ");
+        highScores.setText("High Scores");
+        
+        titleText.setFont(new Font("Serif", Font.BOLD, 20));
+        titleCredit.setFont(new Font("Serif", Font.BOLD, 20));
+        highScores.setFont(new Font("Serif", Font.BOLD, 20));
+
 
         //Buttons
         JButton playButton = new JButton("Play");  
         JButton highScoreButton = new JButton("High Score");  
         JButton creditsButton = new JButton("Credits"); 
-        JButton backButton = new JButton("Back");  
+        JButton backButtonCF = new JButton("Back");  
+        JButton backButtonHS = new JButton("Back");  
 
         //Positioning
         titleText.setBounds(200,50, 300,150);
@@ -71,12 +80,15 @@ public class Hangman{
         playButton.setBounds(500,275,95,30);  
         highScoreButton.setBounds(500,300,95,30);  
         creditsButton.setBounds(500,325,95,30);
-        backButton.setBounds(25,350,95,30);
+        backButtonHS.setBounds(25,350,95,30);
+        backButtonCF.setBounds(25,350,95,30);
         jennaBarrett.setBounds(250,125,200,100);
         lennyYang.setBounds(250,150,200,100);
         rachelFrodsham.setBounds(250,175,200,100);
         imageLabel.setBounds(10, 10, 400, 400);
         titleCredit.setBounds(250,75,100,100);
+        highScores.setBounds(250,10,300,150);
+
         
         //Listeners
         new java.util.Timer().schedule(new java.util.TimerTask() {
@@ -85,11 +97,17 @@ public class Hangman{
                     titleFrame.setVisible(false);
                     mainMenuFrame.setVisible(true);
                     imageLabel.setVisible(true);
-
                 }
             },
             4500 
         );
+        
+        highScoreButton.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                mainMenuFrame.setVisible(false);
+                highScoreFrame.setVisible(true);
+            }  
+        });
         
         creditsButton.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
@@ -98,9 +116,16 @@ public class Hangman{
             }  
         });
         
-        backButton.addActionListener(new ActionListener(){  
+        backButtonCF.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
                 creditsFrame.setVisible(false);
+                mainMenuFrame.setVisible(true);
+            }  
+        });  
+        
+        backButtonHS.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                highScoreFrame.setVisible(false);
                 mainMenuFrame.setVisible(true);
             }  
         });  
@@ -132,9 +157,16 @@ public class Hangman{
         creditsFrame.add(jennaBarrett);
         creditsFrame.add(lennyYang);
         creditsFrame.add(rachelFrodsham);
-        creditsFrame.add(backButton);
+        creditsFrame.add(backButtonCF);
         creditsFrame.setLayout(null);
         creditsFrame.setLocationRelativeTo(null); 
+        
+        //High Scores Frame
+        highScoreFrame.setSize(600,400);
+        highScoreFrame.add(highScores);
+        highScoreFrame.add(backButtonHS);
+        highScoreFrame.setLayout(null);
+        highScoreFrame.setLocationRelativeTo(null); 
 
     }
 }
