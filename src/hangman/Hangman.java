@@ -33,6 +33,7 @@ public class Hangman{
         JFrame titleFrame = new JFrame("Title"); 
         JFrame mainMenuFrame = new JFrame("Hangman"); 
         JFrame creditsFrame = new JFrame("Credits"); 
+        
 
         creditsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         titleFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
@@ -44,6 +45,8 @@ public class Hangman{
         final JLabel jennaBarrett = new JLabel();
         final JLabel lennyYang = new JLabel();
         final JLabel rachelFrodsham = new JLabel();
+        ImageIcon image = new ImageIcon("Images/pasta.png");
+        JLabel imageLabel = new JLabel(image); 
 
         titleText.setFont(new Font("Serif", Font.BOLD, 20));
         titleText.setText("CS245 Quarter Project"); 
@@ -68,14 +71,16 @@ public class Hangman{
         jennaBarrett.setBounds(250,125,200,100);
         lennyYang.setBounds(250,150,200,100);
         rachelFrodsham.setBounds(250,175,200,100);
-
+        imageLabel.setBounds(10, 10, 400, 400);
         
         //Listeners
         new java.util.Timer().schedule(new java.util.TimerTask() {
                 @Override
                 public void run() {
                     titleFrame.setVisible(false);
-                    mainMenuFrame.setVisible(true); 
+                    mainMenuFrame.setVisible(true);
+                    imageLabel.setVisible(true);
+
                 }
             },
             3000 
@@ -112,6 +117,7 @@ public class Hangman{
         mainMenuFrame.add(playButton); 
         mainMenuFrame.add(highScoreButton); 
         mainMenuFrame.add(creditsButton);                 
+        mainMenuFrame.add(imageLabel);        
         mainMenuFrame.setLayout(null);
         mainMenuFrame.setLocationRelativeTo(null); 
         
@@ -126,3 +132,4 @@ public class Hangman{
 
     }
 }
+//
