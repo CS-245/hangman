@@ -45,11 +45,15 @@ public class Hangman{
         final JLabel jennaBarrett = new JLabel();
         final JLabel lennyYang = new JLabel();
         final JLabel rachelFrodsham = new JLabel();
+        final JLabel titleCredit = new JLabel();
+
         ImageIcon image = new ImageIcon("Images/pasta.png");
         JLabel imageLabel = new JLabel(image); 
 
         titleText.setFont(new Font("Serif", Font.BOLD, 20));
         titleText.setText("CS245 Quarter Project"); 
+        titleCredit.setFont(new Font("Serif", Font.BOLD, 20));
+        titleCredit.setText("Credits");
         teamText.setText("By: Team Pasta");  
         jennaBarrett.setText("Jenna Barret, ");
         lennyYang.setText("Lenny Yang, ");
@@ -72,6 +76,7 @@ public class Hangman{
         lennyYang.setBounds(250,150,200,100);
         rachelFrodsham.setBounds(250,175,200,100);
         imageLabel.setBounds(10, 10, 400, 400);
+        titleCredit.setBounds(250,75,100,100);
         
         //Listeners
         new java.util.Timer().schedule(new java.util.TimerTask() {
@@ -123,6 +128,7 @@ public class Hangman{
         
         //Credits Frame
         creditsFrame.setSize(600,400);
+        creditsFrame.add(titleCredit);
         creditsFrame.add(jennaBarrett);
         creditsFrame.add(lennyYang);
         creditsFrame.add(rachelFrodsham);
