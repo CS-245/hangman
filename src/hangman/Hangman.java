@@ -83,7 +83,7 @@ public class Hangman{
 
                 }
             },
-            3000 
+            4500 
         );
         
         creditsButton.addActionListener(new ActionListener(){  
