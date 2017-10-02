@@ -67,7 +67,7 @@ public class Hangman{
         playButton.setBounds(500,275,95,30);  
         highScoreButton.setBounds(500,300,95,30);  
         creditsButton.setBounds(500,325,95,30);
-        backButton.setBounds(50,350,95,30);
+        backButton.setBounds(25,350,95,30);
         jennaBarrett.setBounds(250,125,200,100);
         lennyYang.setBounds(250,150,200,100);
         rachelFrodsham.setBounds(250,175,200,100);
