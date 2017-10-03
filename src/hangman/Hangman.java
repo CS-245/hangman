@@ -24,7 +24,6 @@ public class Hangman{
          hangman();
     }
     
-    
     // method: hangman()
     // purpose: create windows that make the Hangman game
     private static void hangman() {
@@ -34,13 +33,14 @@ public class Hangman{
         JFrame mainMenuFrame = new JFrame("Main Menu"); 
         JFrame creditsFrame = new JFrame("Credits"); 
         JFrame highScoreFrame = new JFrame("High Scores");
-        
+        JFrame playGame = new JFrame("Hangman");
 
         creditsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         titleFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         mainMenuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         highScoreFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                
+        playGame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         //Labels
         final JLabel titleText = new JLabel();
         final JLabel teamText = new JLabel();  
@@ -49,30 +49,30 @@ public class Hangman{
         final JLabel rachelFrodsham = new JLabel();
         final JLabel titleCredit = new JLabel();
         final JLabel highScores = new JLabel();
+        final JLabel hangmanTitle = new JLabel();
 
 
-        ImageIcon image = new ImageIcon("Images/pasta.png");
-        JLabel imageLabel = new JLabel(image); 
+        ImageIcon pastaIcon = new ImageIcon("Images/pasta.png");
+        JLabel pastaImage = new JLabel(pastaIcon); 
 
         titleText.setText("CS245 Quarter Project"); 
         titleCredit.setText("Credits");
         teamText.setText("By: Team Pasta");  
-        jennaBarrett.setText("Jenna Barret, ");
-        lennyYang.setText("Lenny Yang, ");
-        rachelFrodsham.setText("Rachel Frodsham, ");
+        jennaBarrett.setText("Jenna Barret, 010805821");
+        lennyYang.setText("Lenny Yang, 010265034");
+        rachelFrodsham.setText("Rachel Frodsham, 009922783");
         highScores.setText("High Scores");
         
         titleText.setFont(new Font("Serif", Font.BOLD, 20));
         titleCredit.setFont(new Font("Serif", Font.BOLD, 20));
         highScores.setFont(new Font("Serif", Font.BOLD, 20));
 
-
         //Buttons
         JButton playButton = new JButton("Play");  
         JButton highScoreButton = new JButton("High Score");  
-        JButton creditsButton = new JButton("Credits"); 
-        JButton backButtonCF = new JButton("Back");  
-        JButton backButtonHS = new JButton("Back");  
+        JButton creditsButton = new JButton("Credits");
+        JButton backButtonCF = new JButton("Back");
+        JButton backButtonHS = new JButton("Back");
 
         //Positioning
         titleText.setBounds(200,50, 300,150);
@@ -85,7 +85,7 @@ public class Hangman{
         jennaBarrett.setBounds(250,125,200,100);
         lennyYang.setBounds(250,150,200,100);
         rachelFrodsham.setBounds(250,175,200,100);
-        imageLabel.setBounds(10, 10, 400, 400);
+        pastaImage.setBounds(10, 0, 400, 400);
         titleCredit.setBounds(250,75,100,100);
         highScores.setBounds(250,10,300,150);
 
@@ -96,7 +96,6 @@ public class Hangman{
                 public void run() {
                     titleFrame.setVisible(false);
                     mainMenuFrame.setVisible(true);
-                    imageLabel.setVisible(true);
                 }
             },
             4500 
@@ -128,10 +127,7 @@ public class Hangman{
                 highScoreFrame.setVisible(false);
                 mainMenuFrame.setVisible(true);
             }  
-        });  
-
-
-        
+        });          
         
         //Title Frame
         titleFrame.setSize(600,400);
@@ -141,13 +137,12 @@ public class Hangman{
         titleFrame.setLocationRelativeTo(null); 
         titleFrame.setVisible(true); 
 
-
         //Main Frame
         mainMenuFrame.setSize(600,400);  
         mainMenuFrame.add(playButton); 
         mainMenuFrame.add(highScoreButton); 
         mainMenuFrame.add(creditsButton);                 
-        mainMenuFrame.add(imageLabel);        
+        mainMenuFrame.add(pastaImage);        
         mainMenuFrame.setLayout(null);
         mainMenuFrame.setLocationRelativeTo(null); 
         
