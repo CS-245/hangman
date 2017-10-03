@@ -62,10 +62,12 @@ public class Hangman{
         lennyYang.setText("Lenny Yang, 010265034");
         rachelFrodsham.setText("Rachel Frodsham, 009922783");
         highScores.setText("High Scores");
+        hangmanTitle.setText("Hangman");
         
         titleText.setFont(new Font("Serif", Font.BOLD, 20));
         titleCredit.setFont(new Font("Serif", Font.BOLD, 20));
         highScores.setFont(new Font("Serif", Font.BOLD, 20));
+        hangmanTitle.setFont(new Font("Serif", Font.BOLD, 20));
 
         //Buttons
         JButton playButton = new JButton("Play");  
@@ -88,8 +90,8 @@ public class Hangman{
         pastaImage.setBounds(10, 0, 400, 400);
         titleCredit.setBounds(250,75,100,100);
         highScores.setBounds(250,10,300,150);
+        hangmanTitle.setBounds(10,0,100,100);
 
-        
         //Listeners
         new java.util.Timer().schedule(new java.util.TimerTask() {
                 @Override
@@ -108,6 +110,13 @@ public class Hangman{
             }  
         });
         
+        playButton.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                mainMenuFrame.setVisible(false);
+                playGame.setVisible(true);
+            }
+        });
+
         creditsButton.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
                 mainMenuFrame.setVisible(false);
@@ -144,8 +153,14 @@ public class Hangman{
         mainMenuFrame.add(creditsButton);                 
         mainMenuFrame.add(pastaImage);        
         mainMenuFrame.setLayout(null);
-        mainMenuFrame.setLocationRelativeTo(null); 
+        mainMenuFrame.setLocationRelativeTo(null);
         
+        //Main Frame
+        playGame.setSize(600,400);  
+        playGame.add(hangmanTitle); 
+        playGame.setLayout(null);
+        playGame.setLocationRelativeTo(null); 
+    
         //Credits Frame
         creditsFrame.setSize(600,400);
         creditsFrame.add(titleCredit);
