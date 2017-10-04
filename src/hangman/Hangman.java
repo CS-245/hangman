@@ -78,7 +78,11 @@ public class Hangman{
 
         //Positioning
         titleText.setBounds(200,50, 300,150);
+<<<<<<< HEAD
+        teamText.setBounds(250,300, 200,50);
+=======
         teamText.setBounds(250,300, 150,50);
+>>>>>>> 538c4515dafa9d3f37d6d8816bf2d65f8d1375c6
         playButton.setBounds(400,225,150,30);  
         highScoreButton.setBounds(400,275,150,30);  
         creditsButton.setBounds(400,325,150,30);
