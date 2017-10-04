@@ -79,11 +79,11 @@ public class Hangman{
         //Positioning
         titleText.setBounds(200,50, 300,150);
         teamText.setBounds(250,300, 150,50);
-        playButton.setBounds(500,275,95,30);  
-        highScoreButton.setBounds(500,300,95,30);  
-        creditsButton.setBounds(500,325,95,30);
-        backButtonHS.setBounds(25,350,95,30);
-        backButtonCF.setBounds(25,350,95,30);
+        playButton.setBounds(400,225,150,30);  
+        highScoreButton.setBounds(400,275,150,30);  
+        creditsButton.setBounds(400,325,150,30);
+        backButtonHS.setBounds(25,300,95,30);
+        backButtonCF.setBounds(25,300,95,30);
         jennaBarrett.setBounds(250,125,200,100);
         lennyYang.setBounds(250,150,200,100);
         rachelFrodsham.setBounds(250,175,200,100);
