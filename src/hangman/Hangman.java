@@ -14,19 +14,44 @@ package hangman;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.*;
 
 public class Hangman{
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException{
          hangman();
     }
     
+     
+    
+
     // method: hangman()
     // purpose: create windows that make the Hangman game
     private static void hangman() {
+        
+        final DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        int interval = 1000; // 1000 ms
+
+        Calendar now = Calendar.getInstance();
+        JLabel time = new JLabel(dateFormat.format(now.getTime()));
+        time.setBounds(400, 0, 200, 125);
+        
+        Timer timer = new Timer(interval, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Calendar now = Calendar.getInstance();
+                time.setText(dateFormat.format(now.getTime()));
+            }
+        });
+        
+        timer.start();
+
         
         //Frames
         JFrame titleFrame = new JFrame("Title"); 
@@ -50,7 +75,6 @@ public class Hangman{
         final JLabel titleCredit = new JLabel();
         final JLabel highScores = new JLabel();
         final JLabel hangmanTitle = new JLabel();
-
 
         ImageIcon pastaIcon = new ImageIcon("Images/pasta.png");
         JLabel pastaImage = new JLabel(pastaIcon); 
@@ -78,15 +102,12 @@ public class Hangman{
 
         //Positioning
         titleText.setBounds(200,50, 300,150);
-<<<<<<< HEAD
         teamText.setBounds(250,300, 200,50);
-=======
         teamText.setBounds(250,300, 150,50);
->>>>>>> 538c4515dafa9d3f37d6d8816bf2d65f8d1375c6
         playButton.setBounds(400,225,150,30);  
         highScoreButton.setBounds(400,275,150,30);  
         creditsButton.setBounds(400,325,150,30);
-        backButtonHS.setBounds(25,300,95,30);
+        backButtonHS.setBounds(25,300,95,30);   
         backButtonCF.setBounds(25,300,95,30);
         jennaBarrett.setBounds(250,125,200,100);
         lennyYang.setBounds(250,150,200,100);
@@ -159,10 +180,11 @@ public class Hangman{
         mainMenuFrame.setLayout(null);
         mainMenuFrame.setLocationRelativeTo(null);
         
-        //Main Frame
+        //Play Frame
         playGame.setSize(600,400);  
         playGame.add(hangmanTitle); 
         playGame.setLayout(null);
+        playGame.add(time);
         playGame.setLocationRelativeTo(null); 
     
         //Credits Frame
