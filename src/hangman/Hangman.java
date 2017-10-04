@@ -17,7 +17,6 @@ import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import javax.swing.*;
 
 public class Hangman{
@@ -27,14 +26,12 @@ public class Hangman{
     public static void main(String[] args) throws InterruptedException{
          hangman();
     }
-    
-     
-    
 
     // method: hangman()
     // purpose: create windows that make the Hangman game
     private static void hangman() {
-        
+
+        //Timer
         final DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         int interval = 1000; // 1000 ms
 
