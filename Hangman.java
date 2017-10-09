@@ -49,6 +49,8 @@ class Painter extends JPanel{
 public class Hangman{
 
     static int currentScore = 100;
+    static String answer;
+    static String displayedAnswer;
     
     public static void main(String[] args) throws InterruptedException{
          hangman();
@@ -89,9 +91,9 @@ public class Hangman{
         Random rand = new Random(); 
         int value = rand.nextInt(5);    
         //choosing a word
-        String answer = wordBank[value];
+        answer = wordBank[value];
         
-        String displayedAnswer = "";
+        displayedAnswer = "";
         for (int i=0;i<answer.length();i++){
             displayedAnswer = displayedAnswer + "_ ";
         }
@@ -146,7 +148,7 @@ public class Hangman{
         hangmanTitle.setFont(new Font("AR DESTINE", Font.PLAIN, 35));
         scoreTitle.setFont(new Font("Serif", Font.BOLD, 35));
         scoreText.setFont(new Font("Serif", Font.PLAIN, 20));
-	answerText.setFont(new Font("Serif", Font.BOLD, 36));
+	answerText.setFont(new Font("Serif", Font.BOLD, 35));
 
         //Buttons
         JButton playButton = new JButton("Play");  
@@ -323,12 +325,183 @@ public class Hangman{
             }  
         });  
 
-       // letterA.addActionListener(new ActionListener(){  
-         //   public void actionPerformed(ActionEvent e){  
-         //       if(answer.contains("a"))
-         //           displayedAnswer = rightAnswer('a', answer, displayedAnswer);
-         //   }  
-       // }); 
+        letterA.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("a"))
+                    rightAnswer('a');
+            }  
+        }); 
+        
+        letterB.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("b"))
+                    rightAnswer('b');
+            }  
+        }); 
+        
+        letterC.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("c"))
+                    rightAnswer('c');
+            }  
+        }); 
+        
+        letterD.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("d"))
+                    rightAnswer('d');
+            }  
+        }); 
+        
+        letterE.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("e"))
+                    rightAnswer('e');
+            }  
+        }); 
+        letterF.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("f"))
+                    rightAnswer('f');
+            }  
+        }); 
+        letterG.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("g"))
+                    rightAnswer('g');
+            }  
+        }); 
+        letterH.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("h"))
+                    rightAnswer('h');
+            }  
+        }); 
+        letterI.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("i"))
+                    rightAnswer('i');
+            }  
+        }); 
+                                                                        
+        letterJ.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("j"))
+                    rightAnswer('j');
+            }  
+        }); 
+        
+        letterK.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("k"))
+                    rightAnswer('k');
+            }  
+        });
+        
+        letterL.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("l"))
+                    rightAnswer('l');
+            }  
+        });
+        
+        letterM.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("m"))
+                    rightAnswer('m');
+            }  
+        });
+        
+        letterN.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("n"))
+                    rightAnswer('n');
+            }  
+        });
+        
+        letterO.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("o"))
+                    rightAnswer('o');
+            }  
+        });
+        
+        letterP.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("p"))
+                    rightAnswer('p');
+            }  
+        });
+        
+        letterQ.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("q"))
+                    rightAnswer('q');
+            }  
+        });
+        
+        letterR.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("r"))
+                    rightAnswer('r');
+            }  
+        });
+        
+        letterS.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("s"))
+                    rightAnswer('s');
+            }  
+        });
+        
+        letterT.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("t"))
+                    rightAnswer('t');
+            }  
+        });
+        
+        letterU.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("u"))
+                    rightAnswer('u');
+            }  
+        });
+        
+        letterV.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("v"))
+                    rightAnswer('v');
+            }  
+        });
+        
+        letterW.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("w"))
+                    rightAnswer('w');
+            }  
+        });
+        
+        letterX.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("x"))
+                    rightAnswer('x');
+            }  
+        });
+        
+        letterY.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("y"))
+                    rightAnswer('y');
+            }  
+        });
+        
+        letterZ.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(answer.contains("z"))
+                    rightAnswer('z');
+            }  
+        });
         
         //Title Frame
         titleFrame.setSize(600,400);
@@ -411,15 +584,19 @@ public class Hangman{
 
     }
     //Method for right answer
-    public static String rightAnswer(char guess, String answer, String displayedAns){
+    public static void rightAnswer(char guess){
+        rightAnswer(guess,answer,displayedAnswer);
+    }
+    
+    public static void rightAnswer(char guess, String answer, String displayedAns){
         String newAns = displayedAns;
         int ansIndex = 0;
         for(int i=0;i<answer.length();i++){
             if (answer.charAt(i) == guess)
-                newAns = displayedAns.substring(0,ansIndex)+guess+displayedAns.substring(ansIndex+1);
+                newAns = newAns.substring(0,ansIndex)+guess+newAns.substring(ansIndex+1);
            ansIndex +=2;      
         }
-        return newAns;
+        displayedAnswer = newAns;
     }
         
     //Method for wrong answer
