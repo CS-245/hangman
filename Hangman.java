@@ -4,7 +4,7 @@
 * class: CS245 – Graphic User Interface (GUI)
 *
 * assignment: Point and Click Game – v.1.0
-* date last modified: 10/1/2017
+* date last modified: 10/8/2017
 *
 * purpose: This program creates the hangman game with Java code
 *
@@ -18,6 +18,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.*;
+import java.util.Random;
 import javax.swing.JPanel;
 import javax.swing.BorderFactory;
 import java.awt.Color;
@@ -76,6 +77,24 @@ public class Hangman{
         timer.start();
         
 
+        //Word bank array
+        String[] wordBank = new String[5];
+        wordBank[0] = "abstract";
+        wordBank[1] = "cemetery";
+        wordBank[2] = "nurse";
+        wordBank[3] = "pharmacy";
+        wordBank[4] = "climbing";
+    
+        //random number generator
+        Random rand = new Random(); 
+        int value = rand.nextInt(5);    
+        //choosing a word
+        String answer = wordBank[value];
+        
+        String displayedAnswer = "";
+        for (int i=0;i<answer.length();i++){
+            displayedAnswer = displayedAnswer + "_ ";
+        }
         
         //Frames
         JFrame titleFrame = new JFrame("Hangman"); 
@@ -106,6 +125,7 @@ public class Hangman{
         
         ImageIcon pastaIcon = new ImageIcon("Images/pasta.png");
         JLabel pastaImage = new JLabel(pastaIcon); 
+        JLabel answerText = new JLabel();
 
         titleText.setText("CS245 Quarter Project"); 
         titleCredit.setText("Credits");
@@ -115,6 +135,7 @@ public class Hangman{
         rachelFrodsham.setText("Rachel Frodsham, 009922783");
         highScores.setText("High Scores");
         hangmanTitle.setText("Hangman");
+	answerText.setText(displayedAnswer);
         scoreTitle.setText("Your Score");
         scoreText.setText(Integer.toString(currentScore));
         
@@ -125,6 +146,7 @@ public class Hangman{
         hangmanTitle.setFont(new Font("AR DESTINE", Font.PLAIN, 35));
         scoreTitle.setFont(new Font("Serif", Font.BOLD, 35));
         scoreText.setFont(new Font("Serif", Font.PLAIN, 20));
+	answerText.setFont(new Font("Serif", Font.BOLD, 36));
 
         //Buttons
         JButton playButton = new JButton("Play");  
@@ -134,6 +156,33 @@ public class Hangman{
         JButton backButtonHS = new JButton("Back");
         JButton skipButton = new JButton("Skip");
         JButton endButton = new JButton("End");
+        JButton letterA = new JButton("A");
+        JButton letterB = new JButton("B");
+        JButton letterC = new JButton("C");
+        JButton letterD = new JButton("D");
+        JButton letterE = new JButton("E");
+        JButton letterF = new JButton("F");
+        JButton letterG = new JButton("G");
+        JButton letterH = new JButton("H");
+        JButton letterI = new JButton("I");
+        JButton letterJ = new JButton("J");
+        JButton letterK = new JButton("K");
+        JButton letterL = new JButton("L");
+        JButton letterM = new JButton("M");
+        JButton letterN = new JButton("N");
+        JButton letterO = new JButton("O");
+        JButton letterP = new JButton("P");
+        JButton letterQ = new JButton("Q");
+        JButton letterR = new JButton("R");
+        JButton letterS = new JButton("S");
+        JButton letterT = new JButton("T");
+        JButton letterU = new JButton("U");
+        JButton letterV = new JButton("V");
+        JButton letterW = new JButton("W");
+        JButton letterX = new JButton("X");
+        JButton letterY = new JButton("Y");
+        JButton letterZ = new JButton("Z");
+        
 
         //Positioning
         titleText.setBounds(140,50,500,150);
@@ -154,6 +203,64 @@ public class Hangman{
         scoreTitle.setBounds(200, -10, 500, 100);
         scoreText.setBounds(250, 100, 500, 100);
         endButton.setBounds(400,285,150,30);
+	answerText.setBounds(150,175,200,100);
+        letterA.setBounds(40,275,30,30);
+        letterB.setBounds(80,275,30,30);
+        letterC.setBounds(120,275,30,30);
+        letterD.setBounds(160,275,30,30);
+        letterE.setBounds(200,275,30,30);
+        letterF.setBounds(240,275,30,30);
+        letterG.setBounds(280,275,30,30);
+        letterH.setBounds(320,275,30,30);
+        letterI.setBounds(360,275,30,30);
+        letterJ.setBounds(400,275,30,30);
+        letterK.setBounds(440,275,30,30);
+        letterL.setBounds(480,275,30,30);
+        letterM.setBounds(520,275,30,30);
+        letterN.setBounds(40,310,30,30);
+        letterO.setBounds(80,310,30,30);
+        letterP.setBounds(120,310,30,30);
+        letterQ.setBounds(160,310,30,30);
+        letterR.setBounds(200,310,30,30);
+        letterS.setBounds(240,310,30,30);
+        letterT.setBounds(280,310,30,30);
+        letterU.setBounds(320,310,30,30);
+        letterV.setBounds(360,310,30,30);
+        letterW.setBounds(400,310,30,30);
+        letterX.setBounds(440,310,30,30);
+        letterY.setBounds(480,310,30,30);
+        letterZ.setBounds(520,310,30,30);
+        
+        //setting margins
+        letterA.setMargin(new Insets(0,0,0,0));
+        letterB.setMargin(new Insets(0,0,0,0));
+        letterC.setMargin(new Insets(0,0,0,0));
+        letterD.setMargin(new Insets(0,0,0,0));
+        letterE.setMargin(new Insets(0,0,0,0));
+        letterF.setMargin(new Insets(0,0,0,0));
+        letterG.setMargin(new Insets(0,0,0,0));
+        letterH.setMargin(new Insets(0,0,0,0));
+        letterI.setMargin(new Insets(0,0,0,0));
+        letterJ.setMargin(new Insets(0,0,0,0));
+        letterK.setMargin(new Insets(0,0,0,0));
+        letterL.setMargin(new Insets(0,0,0,0));
+        letterM.setMargin(new Insets(0,0,0,0));
+        letterN.setMargin(new Insets(0,0,0,0));
+        letterO.setMargin(new Insets(0,0,0,0));
+        letterP.setMargin(new Insets(0,0,0,0));
+        letterQ.setMargin(new Insets(0,0,0,0));
+        letterR.setMargin(new Insets(0,0,0,0));
+        letterS.setMargin(new Insets(0,0,0,0));
+        letterT.setMargin(new Insets(0,0,0,0));
+        letterU.setMargin(new Insets(0,0,0,0));
+        letterV.setMargin(new Insets(0,0,0,0));
+        letterW.setMargin(new Insets(0,0,0,0));
+        letterX.setMargin(new Insets(0,0,0,0));
+        letterY.setMargin(new Insets(0,0,0,0));
+        letterZ.setMargin(new Insets(0,0,0,0));
+        
+        
+        
 
         //Listeners
         new java.util.Timer().schedule(new java.util.TimerTask() {
@@ -215,6 +322,13 @@ public class Hangman{
                 currentScore = 100;
             }  
         });  
+
+       // letterA.addActionListener(new ActionListener(){  
+         //   public void actionPerformed(ActionEvent e){  
+         //       if(answer.contains("a"))
+         //           displayedAnswer = rightAnswer('a', answer, displayedAnswer);
+         //   }  
+       // }); 
         
         //Title Frame
         titleFrame.setSize(600,400);
@@ -243,6 +357,33 @@ public class Hangman{
         Painter p = new Painter();
         p.setVisible(true);
         playGame.add(p);
+		playGame.add(answerText);
+        playGame.add(letterA);
+        playGame.add(letterB);
+        playGame.add(letterC);
+        playGame.add(letterD);
+        playGame.add(letterE);
+        playGame.add(letterF);
+        playGame.add(letterG);
+        playGame.add(letterH);
+        playGame.add(letterI);
+        playGame.add(letterJ);
+        playGame.add(letterK);
+        playGame.add(letterL);
+        playGame.add(letterM);
+        playGame.add(letterN);
+        playGame.add(letterO);
+        playGame.add(letterP);
+        playGame.add(letterQ);
+        playGame.add(letterR);
+        playGame.add(letterS);
+        playGame.add(letterT);
+        playGame.add(letterU);
+        playGame.add(letterV);
+        playGame.add(letterW);
+        playGame.add(letterX);
+        playGame.add(letterY);
+        playGame.add(letterZ);
         
         //Score Frame
         scoreFrame.setSize(600,400);
@@ -269,5 +410,20 @@ public class Hangman{
         highScoreFrame.setLocationRelativeTo(null); 
 
     }
+    //Method for right answer
+    public static String rightAnswer(char guess, String answer, String displayedAns){
+        String newAns = displayedAns;
+        int ansIndex = 0;
+        for(int i=0;i<answer.length();i++){
+            if (answer.charAt(i) == guess)
+                newAns = displayedAns.substring(0,ansIndex)+guess+displayedAns.substring(ansIndex+1);
+           ansIndex +=2;      
+        }
+        return newAns;
+    }
+        
+    //Method for wrong answer
+    
+    
 }
 //
