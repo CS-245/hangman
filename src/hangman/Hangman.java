@@ -671,7 +671,7 @@ public class Hangman{
                 else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 500, 200, 200);
                 }
             }  
         });
