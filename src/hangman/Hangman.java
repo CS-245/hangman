@@ -42,8 +42,23 @@ class Painter extends JPanel{
         g2.drawLine(325, 80, 325, 100);
         g2.drawLine(200, 200, 350, 200);
         
-        if(checker) {
-            g2.drawLine(100, 100, 350, 100);
+        if(currentScore == 90) { //head
+            g2.Oval(80, 100, 50, 50);
+        }
+	    if(currentScore == 80) { //body
+            g2.drawLine(80, 150, 80, 225);
+        }
+	    if(currentScore == 70) { //L arm
+            g2.drawLine(80, 200, 50, 150);
+        }
+	    if(currentScore == 60) { //R arm
+            g2.drawLine(80, 200, 110, 150);
+        }
+	    if(currentScore == 50) { //L leg
+            g2.drawLine(80, 250, 50, 250);
+        }
+	    if(currentScore == 40) { //R leg
+            g2.drawLine(80, 250, 1100, 250);
         }
         
     }
@@ -329,6 +344,7 @@ public class Hangman{
         });  
 
         Painter p = new Painter();
+	    
         //LETTERS
          letterA.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
@@ -338,7 +354,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 500, 200, 200);
                 }
             }  
         }); 
