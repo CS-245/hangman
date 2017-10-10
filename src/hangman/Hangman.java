@@ -42,23 +42,38 @@ class Painter extends JPanel{
         g2.drawLine(325, 80, 325, 100);
         g2.drawLine(200, 200, 350, 200);
         
-        if(currentScore == 90) { //head
-            g2.Oval(80, 100, 50, 50);
+        if(Hangman.currentScore == 90) { //head
+            g2.drawOval(300, 100, 50, 50);
         }
-	    if(currentScore == 80) { //body
-            g2.drawLine(80, 150, 80, 225);
+	    if(Hangman.currentScore == 80) { //body
+            g2.drawOval(300, 100, 50, 50);
+            g2.drawLine(325, 150, 325, 170);
         }
-	    if(currentScore == 70) { //L arm
-            g2.drawLine(80, 200, 50, 150);
+	    if(Hangman.currentScore == 70) { //L arm
+            g2.drawOval(300, 100, 50, 50);
+            g2.drawLine(325, 150, 325, 170);
+            g2.drawLine(325, 160, 300, 170);
         }
-	    if(currentScore == 60) { //R arm
-            g2.drawLine(80, 200, 110, 150);
+	    if(Hangman.currentScore == 60) { //R arm
+                g2.drawOval(300, 100, 50, 50);
+            g2.drawLine(325, 150, 325, 170);
+            g2.drawLine(325, 160, 300, 170);
+            g2.drawLine(325, 160, 350, 170);
         }
-	    if(currentScore == 50) { //L leg
-            g2.drawLine(80, 250, 50, 250);
+	    if(Hangman.currentScore == 50) { //L leg
+                g2.drawOval(300, 100, 50, 50);
+            g2.drawLine(325, 150, 325, 170);
+            g2.drawLine(325, 160, 300, 170);
+            g2.drawLine(325, 160, 350, 170);
+            g2.drawLine(325, 170, 300, 190);
         }
-	    if(currentScore == 40) { //R leg
-            g2.drawLine(80, 250, 1100, 250);
+	    if(Hangman.currentScore == 40) { //R leg
+                g2.drawOval(300, 100, 50, 50);
+            g2.drawLine(325, 150, 325, 170);
+            g2.drawLine(325, 160, 300, 170);
+            g2.drawLine(325, 160, 350, 170);
+            g2.drawLine(325, 170, 300, 190);
+            g2.drawLine(325, 170, 350, 190);
         }
         
     }
@@ -66,7 +81,7 @@ class Painter extends JPanel{
 
 public class Hangman{
 
-    static int currentScore = 100;
+    public static int currentScore = 100;
     static String answer;
     static String displayedAnswer;
     
@@ -367,7 +382,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         }); 
@@ -380,7 +395,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         }); 
@@ -393,7 +408,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         }); 
@@ -406,7 +421,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         }); 
@@ -418,7 +433,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         }); 
@@ -430,7 +445,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         }); 
@@ -449,7 +464,7 @@ public class Hangman{
 		     else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         }); 
@@ -462,7 +477,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         }); 
@@ -475,7 +490,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         });
@@ -488,7 +503,7 @@ public class Hangman{
 		     else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         });
@@ -501,7 +516,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         });
@@ -514,7 +529,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         });
@@ -527,7 +542,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         });
@@ -540,7 +555,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         });
@@ -553,7 +568,7 @@ public class Hangman{
 		     else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         });
@@ -566,7 +581,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         });
@@ -579,7 +594,7 @@ public class Hangman{
 		     else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         });
@@ -592,7 +607,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         });
@@ -605,7 +620,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         });
@@ -618,7 +633,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         });
@@ -631,7 +646,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         });
@@ -644,7 +659,7 @@ public class Hangman{
 		    else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         });
@@ -657,7 +672,7 @@ public class Hangman{
 		     else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 79, 201, 247, 122);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
             }  
         });
@@ -671,9 +686,9 @@ public class Hangman{
                 else {
                     //p.checker = true;
 		    currentScore -= 10;
-                    p.repaint(0, 100, 500, 200, 200);
+                    p.repaint(0, 100, 75, 260, 135);
                 }
-            }  
+            }
         });
         
         //Title Frame
