@@ -330,11 +330,16 @@ public class Hangman{
 
         Painter p = new Painter();
         //LETTERS
-        letterA.addActionListener(new ActionListener(){  
+         letterA.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
                 letterA.setEnabled(false);
                 if(answer.contains("a"))
                     rightAnswer('a');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         }); 
         
@@ -343,6 +348,11 @@ public class Hangman{
                 letterB.setEnabled(false);
                 if(answer.contains("b"))
                     rightAnswer('b');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         }); 
         
@@ -351,6 +361,11 @@ public class Hangman{
                 letterC.setEnabled(false);
                 if(answer.contains("c"))
                     rightAnswer('c');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         }); 
         
@@ -359,6 +374,11 @@ public class Hangman{
                 letterD.setEnabled(false);
                 if(answer.contains("d"))
                     rightAnswer('d');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         }); 
         
@@ -367,6 +387,11 @@ public class Hangman{
                 letterE.setEnabled(false);
                 if(answer.contains("e"))
                     rightAnswer('e');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         }); 
         letterF.addActionListener(new ActionListener(){  
@@ -374,6 +399,11 @@ public class Hangman{
                 letterF.setEnabled(false);
                 if(answer.contains("f"))
                     rightAnswer('f');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         }); 
         letterG.addActionListener(new ActionListener(){  
@@ -381,6 +411,11 @@ public class Hangman{
                 letterG.setEnabled(false);
                 if(answer.contains("g"))
                     rightAnswer('g');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         }); 
         letterH.addActionListener(new ActionListener(){  
@@ -403,6 +438,11 @@ public class Hangman{
                 letterJ.setEnabled(false);
                 if(answer.contains("j"))
                     rightAnswer('j');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         }); 
         
@@ -411,6 +451,11 @@ public class Hangman{
                 letterK.setEnabled(false);
                 if(answer.contains("k"))
                     rightAnswer('k');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         });
         
@@ -427,6 +472,11 @@ public class Hangman{
                 letterM.setEnabled(false);
                 if(answer.contains("m"))
                     rightAnswer('m');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         });
         
@@ -435,6 +485,11 @@ public class Hangman{
                 letterN.setEnabled(false);
                 if(answer.contains("n"))
                     rightAnswer('n');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         });
         
@@ -443,6 +498,11 @@ public class Hangman{
                 letterO.setEnabled(false);
                 if(answer.contains("o"))
                     rightAnswer('o');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         });
         
@@ -451,6 +511,11 @@ public class Hangman{
                 letterP.setEnabled(false);
                 if(answer.contains("p"))
                     rightAnswer('p');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         });
         
@@ -467,6 +532,11 @@ public class Hangman{
                 letterR.setEnabled(false);
                 if(answer.contains("r"))
                     rightAnswer('r');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         });
         
@@ -483,6 +553,11 @@ public class Hangman{
                 letterT.setEnabled(false);
                 if(answer.contains("t"))
                     rightAnswer('t');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         });
         
@@ -491,6 +566,11 @@ public class Hangman{
                 letterU.setEnabled(false);
                 if(answer.contains("u"))
                     rightAnswer('u');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         });
         
@@ -499,6 +579,11 @@ public class Hangman{
                 letterV.setEnabled(false);
                 if(answer.contains("v"))
                     rightAnswer('v');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         });
         
@@ -507,6 +592,11 @@ public class Hangman{
                 letterW.setEnabled(false);
                 if(answer.contains("w"))
                     rightAnswer('w');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         });
         
@@ -515,6 +605,11 @@ public class Hangman{
                 letterX.setEnabled(false);
                 if(answer.contains("x"))
                     rightAnswer('x');
+		    else {
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
+                }
             }  
         });
         
@@ -533,8 +628,9 @@ public class Hangman{
                     rightAnswer('z');
                 }
                 else {
-//                    p.checker = true;
-//                    p.repaint(0, 79, 201, 247, 122);
+                    //p.checker = true;
+		    currentScore -= 10;
+                    p.repaint(0, 79, 201, 247, 122);
                 }
             }  
         });
