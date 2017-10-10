@@ -533,8 +533,8 @@ public class Hangman{
                     rightAnswer('z');
                 }
                 else {
-                    p.checker = true;
-                    p.repaint(0, 79, 201, 247, 122);
+//                    p.checker = true;
+//                    p.repaint(0, 79, 201, 247, 122);
                 }
             }  
         });
@@ -599,6 +599,7 @@ public class Hangman{
         scoreFrame.setSize(600,400);
         scoreFrame.add(scoreTitle);
         scoreFrame.add(scoreText);
+        scoreFrame.add(endButton);
         scoreFrame.setLayout(null);
         scoreFrame.setLocationRelativeTo(null);
     
