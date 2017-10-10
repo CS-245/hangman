@@ -201,11 +201,11 @@ public class Hangman{
         titleCredit.setBounds(250,75,100,100);
         highScores.setBounds(250,10,300,150);
         hangmanTitle.setBounds(25,-10,500,100);        
-        skipButton.setBounds(400,285,100,30);
+        skipButton.setBounds(400,100,100,30);
         scoreTitle.setBounds(200, -10, 500, 100);
         scoreText.setBounds(250, 100, 500, 100);
         endButton.setBounds(400,285,150,30);
-	answerText.setBounds(150,175,200,100);
+	answerText.setBounds(150,175,300,100);
         letterA.setBounds(40,275,30,30);
         letterB.setBounds(80,275,30,30);
         letterC.setBounds(120,275,30,30);
@@ -548,14 +548,20 @@ public class Hangman{
         mainMenuFrame.setLocationRelativeTo(null);
         
         //Play Frame
+        Timer timer1 = new Timer(interval, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                answerText.setText(displayedAnswer);
+            }
+        });
+        timer1.start();
+        
         playGame.setSize(600,400);  
         playGame.add(hangmanTitle); 
         playGame.add(time);
         playGame.add(skipButton);
         playGame.setLocationRelativeTo(null); 
         Painter p = new Painter();
-        p.setVisible(true);
-        playGame.add(p);
 	playGame.add(answerText);
         playGame.add(letterA);
         playGame.add(letterB);
@@ -583,6 +589,8 @@ public class Hangman{
         playGame.add(letterX);
         playGame.add(letterY);
         playGame.add(letterZ);
+        p.setVisible(true);
+        playGame.add(p);
         
         //Score Frame
         scoreFrame.setSize(600,400);
@@ -608,6 +616,8 @@ public class Hangman{
         highScoreFrame.setLayout(null);
         highScoreFrame.setLocationRelativeTo(null); 
 
+        
+        
     }
     //Method for right answer
     public static void rightAnswer(char guess){
@@ -615,14 +625,22 @@ public class Hangman{
     }
     
     public static void rightAnswer(char guess, String answer, String displayedAns){
-        char[] ch=displayedAns.toCharArray();
-        int ansIndex = 0;
+        String newAns = "";
         for(int i=0;i<answer.length();i++){
-            if (answer.charAt(i) == guess)
-                ch[ansIndex] = guess;
-           ansIndex +=2;      
+            char a = answer.charAt(i);
+            if (a == guess) {
+                newAns = newAns + guess + " ";
+                //newAns.charAt(i).equals(answer.charAt(i));
+            }
+            else if(displayedAns.contains(Character.toString(a))){
+                newAns = newAns + a + " ";
+            } 
+            else{
+                newAns = newAns + "_ ";
+            }
+                 
         }
-        displayedAnswer = String.valueOf(ch);
+        displayedAnswer = newAns;
     }
         
     //Method for wrong answer
