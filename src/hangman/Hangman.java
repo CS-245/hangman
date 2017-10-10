@@ -4,7 +4,7 @@
 * class: CS245 – Graphic User Interface (GUI)
 *
 * assignment: Point and Click Game – v.1.0
-* date last modified: 10/8/2017
+* date last modified: 10/10/2017
 *
 * purpose: This program creates the hangman game with Java code
 *
@@ -344,9 +344,46 @@ public class Hangman{
         });  
 
         skipButton.addActionListener(new ActionListener(){  
-            public void actionPerformed(ActionEvent e){  
+            public void actionPerformed(ActionEvent e){
+                currentScore = 0;
                 playGame.setVisible(false);
                 scoreFrame.setVisible(true);
+                Random rand = new Random(); 
+                int value = rand.nextInt(5);    
+                //choosing a word
+                answer = wordBank[value];
+
+                displayedAnswer = "";
+                for (int i=0;i<answer.length();i++){
+                    displayedAnswer = displayedAnswer + "_ ";
+                }
+                letterA.setEnabled(true);
+                letterB.setEnabled(true);
+                letterC.setEnabled(true);
+                letterD.setEnabled(true);
+                letterE.setEnabled(true);
+                letterF.setEnabled(true);
+                letterG.setEnabled(true);
+                letterH.setEnabled(true);
+                letterI.setEnabled(true);
+                letterJ.setEnabled(true);
+                letterK.setEnabled(true);
+                letterL.setEnabled(true);
+                letterM.setEnabled(true);
+                letterN.setEnabled(true);
+                letterO.setEnabled(true);
+                letterP.setEnabled(true);
+                letterQ.setEnabled(true);
+                letterR.setEnabled(true);
+                letterS.setEnabled(true);
+                letterT.setEnabled(true);
+                letterU.setEnabled(true);
+                letterV.setEnabled(true);
+                letterW.setEnabled(true);
+                letterX.setEnabled(true);
+                letterY.setEnabled(true);
+                letterZ.setEnabled(true);
+
             }  
         });     
         
@@ -714,6 +751,47 @@ public class Hangman{
             @Override
             public void actionPerformed(ActionEvent e) {
                 answerText.setText(displayedAnswer);
+                if(Hangman.currentScore == 40) {
+                    
+                    playGame.setVisible(false);
+                    scoreFrame.setVisible(true);
+                    Random rand = new Random(); 
+                    int value = rand.nextInt(5);    
+                    //choosing a word
+                    answer = wordBank[value];
+
+                    displayedAnswer = "";
+                    for (int i=0;i<answer.length();i++){
+                        displayedAnswer = displayedAnswer + "_ ";
+                    }
+                    letterA.setEnabled(true);
+                letterB.setEnabled(true);
+                letterC.setEnabled(true);
+                letterD.setEnabled(true);
+                letterE.setEnabled(true);
+                letterF.setEnabled(true);
+                letterG.setEnabled(true);
+                letterH.setEnabled(true);
+                letterI.setEnabled(true);
+                letterJ.setEnabled(true);
+                letterK.setEnabled(true);
+                letterL.setEnabled(true);
+                letterM.setEnabled(true);
+                letterN.setEnabled(true);
+                letterO.setEnabled(true);
+                letterP.setEnabled(true);
+                letterQ.setEnabled(true);
+                letterR.setEnabled(true);
+                letterS.setEnabled(true);
+                letterT.setEnabled(true);
+                letterU.setEnabled(true);
+                letterV.setEnabled(true);
+                letterW.setEnabled(true);
+                letterX.setEnabled(true);
+                letterY.setEnabled(true);
+                letterZ.setEnabled(true);
+                }
+                
             }
         });
         timer1.start();
@@ -756,12 +834,64 @@ public class Hangman{
 
 
         //Score Frame
+        Timer timer2 = new Timer(500, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String numberAsString = Integer.toString(currentScore);
+                scoreText.setText(numberAsString);
+                
+                String withoutSpaces = displayedAnswer.replace(" ", "");
+                if (withoutSpaces.equals(answer)){
+                    playGame.setVisible(false);
+                    scoreFrame.setVisible(true);
+                    Random rand = new Random(); 
+                    int value = rand.nextInt(5);    
+                    //choosing a word
+                    answer = wordBank[value];
+
+                    displayedAnswer = "";
+                    for (int i=0;i<answer.length();i++){
+                        displayedAnswer = displayedAnswer + "_ ";
+                    }
+                    letterA.setEnabled(true);
+                letterB.setEnabled(true);
+                letterC.setEnabled(true);
+                letterD.setEnabled(true);
+                letterE.setEnabled(true);
+                letterF.setEnabled(true);
+                letterG.setEnabled(true);
+                letterH.setEnabled(true);
+                letterI.setEnabled(true);
+                letterJ.setEnabled(true);
+                letterK.setEnabled(true);
+                letterL.setEnabled(true);
+                letterM.setEnabled(true);
+                letterN.setEnabled(true);
+                letterO.setEnabled(true);
+                letterP.setEnabled(true);
+                letterQ.setEnabled(true);
+                letterR.setEnabled(true);
+                letterS.setEnabled(true);
+                letterT.setEnabled(true);
+                letterU.setEnabled(true);
+                letterV.setEnabled(true);
+                letterW.setEnabled(true);
+                letterX.setEnabled(true);
+                letterY.setEnabled(true);
+                letterZ.setEnabled(true);
+                 }
+            }
+        });
+        timer2.start();
+        
         scoreFrame.setSize(600,400);
         scoreFrame.add(scoreTitle);
         scoreFrame.add(scoreText);
         scoreFrame.add(endButton);
         scoreFrame.setLayout(null);
         scoreFrame.setLocationRelativeTo(null);
+        
+        
     
         //Credits Frame
         creditsFrame.setSize(600,400);
@@ -800,7 +930,6 @@ public class Hangman{
             else{
                 newAns = newAns + "_ ";
             }
-                 
         }
         displayedAnswer = newAns;
     }        
