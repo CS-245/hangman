@@ -55,20 +55,20 @@ class Painter extends JPanel{
             g2.drawLine(325, 160, 300, 170);
         }
 	    if(Hangman.currentScore == 60) { //R arm
-                g2.drawOval(300, 100, 50, 50);
+            g2.drawOval(300, 100, 50, 50);
             g2.drawLine(325, 150, 325, 170);
             g2.drawLine(325, 160, 300, 170);
             g2.drawLine(325, 160, 350, 170);
         }
 	    if(Hangman.currentScore == 50) { //L leg
-                g2.drawOval(300, 100, 50, 50);
+            g2.drawOval(300, 100, 50, 50);
             g2.drawLine(325, 150, 325, 170);
             g2.drawLine(325, 160, 300, 170);
             g2.drawLine(325, 160, 350, 170);
             g2.drawLine(325, 170, 300, 190);
         }
-	    if(Hangman.currentScore == 40) { //R leg
-                g2.drawOval(300, 100, 50, 50);
+            if(Hangman.currentScore == 40) { //R leg
+            g2.drawOval(300, 100, 50, 50);
             g2.drawLine(325, 150, 325, 170);
             g2.drawLine(325, 160, 300, 170);
             g2.drawLine(325, 160, 350, 170);
@@ -710,6 +710,14 @@ public class Hangman{
         mainMenuFrame.setLocationRelativeTo(null);
         
         //Play Frame
+        Timer timer1 = new Timer(interval, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                answerText.setText(displayedAnswer);
+            }
+        });
+        timer1.start();
+        
         playGame.setSize(600,400);  
         playGame.add(hangmanTitle); 
         playGame.add(time);
@@ -778,17 +786,24 @@ public class Hangman{
         rightAnswer(guess,answer,displayedAnswer);
     }
     
-    public static void rightAnswer(char guess, String answer, String displayedAns){
-        char[] ch=displayedAns.toCharArray();
-        int ansIndex = 0;
+ public static void rightAnswer(char guess, String answer, String displayedAns){
+        String newAns = "";
         for(int i=0;i<answer.length();i++){
-            if (answer.charAt(i) == guess)
-                ch[ansIndex] = guess;
-           ansIndex +=2;      
+            char a = answer.charAt(i);
+            if (a == guess) {
+                newAns = newAns + guess + " ";
+                //newAns.charAt(i).equals(answer.charAt(i));
+            }
+            else if(displayedAns.contains(Character.toString(a))){
+                newAns = newAns + a + " ";
+            } 
+            else{
+                newAns = newAns + "_ ";
+            }
+                 
         }
-        displayedAnswer = String.valueOf(ch);
-    }
-        
+        displayedAnswer = newAns;
+    }        
     //Method for wrong answer
     
     
