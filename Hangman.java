@@ -327,13 +327,15 @@ public class Hangman{
 
         letterA.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterA.setEnabled(false);
                 if(answer.contains("a"))
                     rightAnswer('a');
             }  
         }); 
         
         letterB.addActionListener(new ActionListener(){  
-            public void actionPerformed(ActionEvent e){  
+            public void actionPerformed(ActionEvent e){ 
+                letterB.setEnabled(false);
                 if(answer.contains("b"))
                     rightAnswer('b');
             }  
@@ -341,6 +343,7 @@ public class Hangman{
         
         letterC.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterC.setEnabled(false);
                 if(answer.contains("c"))
                     rightAnswer('c');
             }  
@@ -348,6 +351,7 @@ public class Hangman{
         
         letterD.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterD.setEnabled(false);
                 if(answer.contains("d"))
                     rightAnswer('d');
             }  
@@ -355,30 +359,35 @@ public class Hangman{
         
         letterE.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterE.setEnabled(false);
                 if(answer.contains("e"))
                     rightAnswer('e');
             }  
         }); 
         letterF.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterF.setEnabled(false);
                 if(answer.contains("f"))
                     rightAnswer('f');
             }  
         }); 
         letterG.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterG.setEnabled(false);
                 if(answer.contains("g"))
                     rightAnswer('g');
             }  
         }); 
         letterH.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterH.setEnabled(false);
                 if(answer.contains("h"))
                     rightAnswer('h');
             }  
         }); 
         letterI.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterI.setEnabled(false);
                 if(answer.contains("i"))
                     rightAnswer('i');
             }  
@@ -386,6 +395,7 @@ public class Hangman{
                                                                         
         letterJ.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterJ.setEnabled(false);
                 if(answer.contains("j"))
                     rightAnswer('j');
             }  
@@ -393,6 +403,7 @@ public class Hangman{
         
         letterK.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterK.setEnabled(false);
                 if(answer.contains("k"))
                     rightAnswer('k');
             }  
@@ -400,6 +411,7 @@ public class Hangman{
         
         letterL.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterL.setEnabled(false);
                 if(answer.contains("l"))
                     rightAnswer('l');
             }  
@@ -407,6 +419,7 @@ public class Hangman{
         
         letterM.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterM.setEnabled(false);
                 if(answer.contains("m"))
                     rightAnswer('m');
             }  
@@ -414,6 +427,7 @@ public class Hangman{
         
         letterN.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterN.setEnabled(false);
                 if(answer.contains("n"))
                     rightAnswer('n');
             }  
@@ -421,6 +435,7 @@ public class Hangman{
         
         letterO.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterO.setEnabled(false);
                 if(answer.contains("o"))
                     rightAnswer('o');
             }  
@@ -428,6 +443,7 @@ public class Hangman{
         
         letterP.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterP.setEnabled(false);
                 if(answer.contains("p"))
                     rightAnswer('p');
             }  
@@ -435,6 +451,7 @@ public class Hangman{
         
         letterQ.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterQ.setEnabled(false);
                 if(answer.contains("q"))
                     rightAnswer('q');
             }  
@@ -442,6 +459,7 @@ public class Hangman{
         
         letterR.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterR.setEnabled(false);
                 if(answer.contains("r"))
                     rightAnswer('r');
             }  
@@ -449,6 +467,7 @@ public class Hangman{
         
         letterS.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterS.setEnabled(false);
                 if(answer.contains("s"))
                     rightAnswer('s');
             }  
@@ -456,6 +475,7 @@ public class Hangman{
         
         letterT.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterT.setEnabled(false);
                 if(answer.contains("t"))
                     rightAnswer('t');
             }  
@@ -463,6 +483,7 @@ public class Hangman{
         
         letterU.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterU.setEnabled(false);
                 if(answer.contains("u"))
                     rightAnswer('u');
             }  
@@ -470,6 +491,7 @@ public class Hangman{
         
         letterV.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterV.setEnabled(false);
                 if(answer.contains("v"))
                     rightAnswer('v');
             }  
@@ -477,6 +499,7 @@ public class Hangman{
         
         letterW.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterW.setEnabled(false);
                 if(answer.contains("w"))
                     rightAnswer('w');
             }  
@@ -484,6 +507,7 @@ public class Hangman{
         
         letterX.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterX.setEnabled(false);
                 if(answer.contains("x"))
                     rightAnswer('x');
             }  
@@ -491,6 +515,7 @@ public class Hangman{
         
         letterY.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterY.setEnabled(false);
                 if(answer.contains("y"))
                     rightAnswer('y');
             }  
@@ -498,6 +523,7 @@ public class Hangman{
         
         letterZ.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
+                letterZ.setEnabled(false);
                 if(answer.contains("z"))
                     rightAnswer('z');
             }  
@@ -530,7 +556,7 @@ public class Hangman{
         Painter p = new Painter();
         p.setVisible(true);
         playGame.add(p);
-		playGame.add(answerText);
+	playGame.add(answerText);
         playGame.add(letterA);
         playGame.add(letterB);
         playGame.add(letterC);
@@ -589,14 +615,14 @@ public class Hangman{
     }
     
     public static void rightAnswer(char guess, String answer, String displayedAns){
-        String newAns = displayedAns;
+        char[] ch=displayedAns.toCharArray();
         int ansIndex = 0;
         for(int i=0;i<answer.length();i++){
             if (answer.charAt(i) == guess)
-                newAns = newAns.substring(0,ansIndex)+guess+newAns.substring(ansIndex+1);
+                ch[ansIndex] = guess;
            ansIndex +=2;      
         }
-        displayedAnswer = newAns;
+        displayedAnswer = String.valueOf(ch);
     }
         
     //Method for wrong answer
