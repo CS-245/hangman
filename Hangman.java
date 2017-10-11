@@ -4,7 +4,7 @@
 * class: CS245 – Graphic User Interface (GUI)
 *
 * assignment: Point and Click Game – v.1.0
-* date last modified: 10/10/2017
+* date last modified: 10/8/2017
 *
 * purpose: This program creates the hangman game with Java code
 *
@@ -27,12 +27,13 @@ import java.awt.Graphics;
 
 
 class Painter extends JPanel{
-    static boolean checker = false;
+    
+
     public Painter(){
+
     }
     @Override
     protected void paintComponent(Graphics g){
-
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         //hangmans noose
@@ -42,46 +43,12 @@ class Painter extends JPanel{
         g2.drawLine(325, 80, 325, 100);
         g2.drawLine(200, 200, 350, 200);
         
-        if(Hangman.currentScore == 90) { //head
-            g2.drawOval(300, 100, 50, 50);
-        }
-	    if(Hangman.currentScore == 80) { //body
-            g2.drawOval(300, 100, 50, 50);
-            g2.drawLine(325, 150, 325, 170);
-        }
-	    if(Hangman.currentScore == 70) { //L arm
-            g2.drawOval(300, 100, 50, 50);
-            g2.drawLine(325, 150, 325, 170);
-            g2.drawLine(325, 160, 300, 170);
-        }
-	    if(Hangman.currentScore == 60) { //R arm
-            g2.drawOval(300, 100, 50, 50);
-            g2.drawLine(325, 150, 325, 170);
-            g2.drawLine(325, 160, 300, 170);
-            g2.drawLine(325, 160, 350, 170);
-        }
-	    if(Hangman.currentScore == 50) { //L leg
-            g2.drawOval(300, 100, 50, 50);
-            g2.drawLine(325, 150, 325, 170);
-            g2.drawLine(325, 160, 300, 170);
-            g2.drawLine(325, 160, 350, 170);
-            g2.drawLine(325, 170, 300, 190);
-        }
-            if(Hangman.currentScore == 40) { //R leg
-            g2.drawOval(300, 100, 50, 50);
-            g2.drawLine(325, 150, 325, 170);
-            g2.drawLine(325, 160, 300, 170);
-            g2.drawLine(325, 160, 350, 170);
-            g2.drawLine(325, 170, 300, 190);
-            g2.drawLine(325, 170, 350, 190);
-        }
-        
     }
 }
 
 public class Hangman{
 
-    public static int currentScore = 100;
+    static int currentScore = 100;
     static String answer;
     static String displayedAnswer;
     
@@ -344,46 +311,9 @@ public class Hangman{
         });  
 
         skipButton.addActionListener(new ActionListener(){  
-            public void actionPerformed(ActionEvent e){
-                currentScore = 0;
+            public void actionPerformed(ActionEvent e){  
                 playGame.setVisible(false);
                 scoreFrame.setVisible(true);
-                Random rand = new Random(); 
-                int value = rand.nextInt(5);    
-                //choosing a word
-                answer = wordBank[value];
-
-                displayedAnswer = "";
-                for (int i=0;i<answer.length();i++){
-                    displayedAnswer = displayedAnswer + "_ ";
-                }
-                letterA.setEnabled(true);
-                letterB.setEnabled(true);
-                letterC.setEnabled(true);
-                letterD.setEnabled(true);
-                letterE.setEnabled(true);
-                letterF.setEnabled(true);
-                letterG.setEnabled(true);
-                letterH.setEnabled(true);
-                letterI.setEnabled(true);
-                letterJ.setEnabled(true);
-                letterK.setEnabled(true);
-                letterL.setEnabled(true);
-                letterM.setEnabled(true);
-                letterN.setEnabled(true);
-                letterO.setEnabled(true);
-                letterP.setEnabled(true);
-                letterQ.setEnabled(true);
-                letterR.setEnabled(true);
-                letterS.setEnabled(true);
-                letterT.setEnabled(true);
-                letterU.setEnabled(true);
-                letterV.setEnabled(true);
-                letterW.setEnabled(true);
-                letterX.setEnabled(true);
-                letterY.setEnabled(true);
-                letterZ.setEnabled(true);
-
             }  
         });     
         
@@ -395,19 +325,11 @@ public class Hangman{
             }  
         });  
 
-        Painter p = new Painter();
-	    
-        //LETTERS
-         letterA.addActionListener(new ActionListener(){  
+        letterA.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
                 letterA.setEnabled(false);
                 if(answer.contains("a"))
                     rightAnswer('a');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 500, 200, 200);
-                }
             }  
         }); 
         
@@ -416,11 +338,6 @@ public class Hangman{
                 letterB.setEnabled(false);
                 if(answer.contains("b"))
                     rightAnswer('b');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         }); 
         
@@ -429,11 +346,6 @@ public class Hangman{
                 letterC.setEnabled(false);
                 if(answer.contains("c"))
                     rightAnswer('c');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         }); 
         
@@ -442,11 +354,6 @@ public class Hangman{
                 letterD.setEnabled(false);
                 if(answer.contains("d"))
                     rightAnswer('d');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         }); 
         
@@ -455,11 +362,6 @@ public class Hangman{
                 letterE.setEnabled(false);
                 if(answer.contains("e"))
                     rightAnswer('e');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         }); 
         letterF.addActionListener(new ActionListener(){  
@@ -467,11 +369,6 @@ public class Hangman{
                 letterF.setEnabled(false);
                 if(answer.contains("f"))
                     rightAnswer('f');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         }); 
         letterG.addActionListener(new ActionListener(){  
@@ -479,11 +376,6 @@ public class Hangman{
                 letterG.setEnabled(false);
                 if(answer.contains("g"))
                     rightAnswer('g');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         }); 
         letterH.addActionListener(new ActionListener(){  
@@ -498,11 +390,6 @@ public class Hangman{
                 letterI.setEnabled(false);
                 if(answer.contains("i"))
                     rightAnswer('i');
-		     else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         }); 
                                                                         
@@ -511,11 +398,6 @@ public class Hangman{
                 letterJ.setEnabled(false);
                 if(answer.contains("j"))
                     rightAnswer('j');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         }); 
         
@@ -524,11 +406,6 @@ public class Hangman{
                 letterK.setEnabled(false);
                 if(answer.contains("k"))
                     rightAnswer('k');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         });
         
@@ -537,11 +414,6 @@ public class Hangman{
                 letterL.setEnabled(false);
                 if(answer.contains("l"))
                     rightAnswer('l');
-		     else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         });
         
@@ -550,11 +422,6 @@ public class Hangman{
                 letterM.setEnabled(false);
                 if(answer.contains("m"))
                     rightAnswer('m');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         });
         
@@ -563,11 +430,6 @@ public class Hangman{
                 letterN.setEnabled(false);
                 if(answer.contains("n"))
                     rightAnswer('n');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         });
         
@@ -576,11 +438,6 @@ public class Hangman{
                 letterO.setEnabled(false);
                 if(answer.contains("o"))
                     rightAnswer('o');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         });
         
@@ -589,11 +446,6 @@ public class Hangman{
                 letterP.setEnabled(false);
                 if(answer.contains("p"))
                     rightAnswer('p');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         });
         
@@ -602,11 +454,6 @@ public class Hangman{
                 letterQ.setEnabled(false);
                 if(answer.contains("q"))
                     rightAnswer('q');
-		     else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         });
         
@@ -615,11 +462,6 @@ public class Hangman{
                 letterR.setEnabled(false);
                 if(answer.contains("r"))
                     rightAnswer('r');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         });
         
@@ -628,11 +470,6 @@ public class Hangman{
                 letterS.setEnabled(false);
                 if(answer.contains("s"))
                     rightAnswer('s');
-		     else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         });
         
@@ -641,11 +478,6 @@ public class Hangman{
                 letterT.setEnabled(false);
                 if(answer.contains("t"))
                     rightAnswer('t');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         });
         
@@ -654,11 +486,6 @@ public class Hangman{
                 letterU.setEnabled(false);
                 if(answer.contains("u"))
                     rightAnswer('u');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         });
         
@@ -667,11 +494,6 @@ public class Hangman{
                 letterV.setEnabled(false);
                 if(answer.contains("v"))
                     rightAnswer('v');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         });
         
@@ -680,11 +502,6 @@ public class Hangman{
                 letterW.setEnabled(false);
                 if(answer.contains("w"))
                     rightAnswer('w');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         });
         
@@ -693,11 +510,6 @@ public class Hangman{
                 letterX.setEnabled(false);
                 if(answer.contains("x"))
                     rightAnswer('x');
-		    else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         });
         
@@ -706,26 +518,15 @@ public class Hangman{
                 letterY.setEnabled(false);
                 if(answer.contains("y"))
                     rightAnswer('y');
-		     else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
             }  
         });
         
         letterZ.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
                 letterZ.setEnabled(false);
-                if(answer.contains("z")) {
+                if(answer.contains("z"))
                     rightAnswer('z');
-                }
-                else {
-                    //p.checker = true;
-		    currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
-                }
-            }
+            }  
         });
         
         //Title Frame
@@ -751,47 +552,6 @@ public class Hangman{
             @Override
             public void actionPerformed(ActionEvent e) {
                 answerText.setText(displayedAnswer);
-                if(Hangman.currentScore == 40) {
-                    
-                    playGame.setVisible(false);
-                    scoreFrame.setVisible(true);
-                    Random rand = new Random(); 
-                    int value = rand.nextInt(5);    
-                    //choosing a word
-                    answer = wordBank[value];
-
-                    displayedAnswer = "";
-                    for (int i=0;i<answer.length();i++){
-                        displayedAnswer = displayedAnswer + "_ ";
-                    }
-                    letterA.setEnabled(true);
-                letterB.setEnabled(true);
-                letterC.setEnabled(true);
-                letterD.setEnabled(true);
-                letterE.setEnabled(true);
-                letterF.setEnabled(true);
-                letterG.setEnabled(true);
-                letterH.setEnabled(true);
-                letterI.setEnabled(true);
-                letterJ.setEnabled(true);
-                letterK.setEnabled(true);
-                letterL.setEnabled(true);
-                letterM.setEnabled(true);
-                letterN.setEnabled(true);
-                letterO.setEnabled(true);
-                letterP.setEnabled(true);
-                letterQ.setEnabled(true);
-                letterR.setEnabled(true);
-                letterS.setEnabled(true);
-                letterT.setEnabled(true);
-                letterU.setEnabled(true);
-                letterV.setEnabled(true);
-                letterW.setEnabled(true);
-                letterX.setEnabled(true);
-                letterY.setEnabled(true);
-                letterZ.setEnabled(true);
-                }
-                
             }
         });
         timer1.start();
@@ -801,7 +561,8 @@ public class Hangman{
         playGame.add(time);
         playGame.add(skipButton);
         playGame.setLocationRelativeTo(null); 
-        playGame.add(answerText);
+        Painter p = new Painter();
+	playGame.add(answerText);
         playGame.add(letterA);
         playGame.add(letterB);
         playGame.add(letterC);
@@ -828,70 +589,15 @@ public class Hangman{
         playGame.add(letterX);
         playGame.add(letterY);
         playGame.add(letterZ);
-        //Painter p = new Painter();
         p.setVisible(true);
         playGame.add(p);
-
-
-        //Score Frame
-        Timer timer2 = new Timer(500, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String numberAsString = Integer.toString(currentScore);
-                scoreText.setText(numberAsString);
-                
-                String withoutSpaces = displayedAnswer.replace(" ", "");
-                if (withoutSpaces.equals(answer)){
-                    playGame.setVisible(false);
-                    scoreFrame.setVisible(true);
-                    Random rand = new Random(); 
-                    int value = rand.nextInt(5);    
-                    //choosing a word
-                    answer = wordBank[value];
-
-                    displayedAnswer = "";
-                    for (int i=0;i<answer.length();i++){
-                        displayedAnswer = displayedAnswer + "_ ";
-                    }
-                    letterA.setEnabled(true);
-                letterB.setEnabled(true);
-                letterC.setEnabled(true);
-                letterD.setEnabled(true);
-                letterE.setEnabled(true);
-                letterF.setEnabled(true);
-                letterG.setEnabled(true);
-                letterH.setEnabled(true);
-                letterI.setEnabled(true);
-                letterJ.setEnabled(true);
-                letterK.setEnabled(true);
-                letterL.setEnabled(true);
-                letterM.setEnabled(true);
-                letterN.setEnabled(true);
-                letterO.setEnabled(true);
-                letterP.setEnabled(true);
-                letterQ.setEnabled(true);
-                letterR.setEnabled(true);
-                letterS.setEnabled(true);
-                letterT.setEnabled(true);
-                letterU.setEnabled(true);
-                letterV.setEnabled(true);
-                letterW.setEnabled(true);
-                letterX.setEnabled(true);
-                letterY.setEnabled(true);
-                letterZ.setEnabled(true);
-                 }
-            }
-        });
-        timer2.start();
         
+        //Score Frame
         scoreFrame.setSize(600,400);
         scoreFrame.add(scoreTitle);
         scoreFrame.add(scoreText);
-        scoreFrame.add(endButton);
         scoreFrame.setLayout(null);
         scoreFrame.setLocationRelativeTo(null);
-        
-        
     
         //Credits Frame
         creditsFrame.setSize(600,400);
@@ -910,13 +616,15 @@ public class Hangman{
         highScoreFrame.setLayout(null);
         highScoreFrame.setLocationRelativeTo(null); 
 
+        
+        
     }
-        //Method for right answer
+    //Method for right answer
     public static void rightAnswer(char guess){
         rightAnswer(guess,answer,displayedAnswer);
     }
     
- public static void rightAnswer(char guess, String answer, String displayedAns){
+    public static void rightAnswer(char guess, String answer, String displayedAns){
         String newAns = "";
         for(int i=0;i<answer.length();i++){
             char a = answer.charAt(i);
@@ -930,9 +638,11 @@ public class Hangman{
             else{
                 newAns = newAns + "_ ";
             }
+                 
         }
         displayedAnswer = newAns;
-    }        
+    }
+        
     //Method for wrong answer
     
     
