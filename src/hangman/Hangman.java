@@ -20,9 +20,6 @@ import java.util.Calendar;
 import javax.swing.*;
 import java.util.Random;
 import javax.swing.JPanel;
-import javax.swing.BorderFactory;
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 
 
@@ -747,10 +744,55 @@ public class Hangman{
         mainMenuFrame.setLocationRelativeTo(null);
         
         //Play Frame
-        Timer timer1 = new Timer(interval, new ActionListener() {
+        Timer updateFrames = new Timer(1, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 answerText.setText(displayedAnswer);
+                String numberAsString = Integer.toString(currentScore);
+                scoreText.setText(numberAsString);
+                String withoutSpaces = displayedAnswer.replace(" ", "");
+                
+                if (withoutSpaces.equals(answer)){
+                    playGame.setVisible(false);
+                    scoreFrame.setVisible(true);
+                    Random rand = new Random(); 
+                    int value = rand.nextInt(5);    
+                    //choosing a word
+                    answer = wordBank[value];
+
+                    displayedAnswer = "";
+                    for (int i=0;i<answer.length();i++){
+                        displayedAnswer = displayedAnswer + "_ ";
+                    }
+                    
+                    letterA.setEnabled(true);
+                    letterB.setEnabled(true);
+                    letterC.setEnabled(true);
+                    letterD.setEnabled(true);
+                    letterE.setEnabled(true);
+                    letterF.setEnabled(true);
+                    letterG.setEnabled(true);
+                    letterH.setEnabled(true);
+                    letterI.setEnabled(true);
+                    letterJ.setEnabled(true);
+                    letterK.setEnabled(true);
+                    letterL.setEnabled(true);
+                    letterM.setEnabled(true);
+                    letterN.setEnabled(true);
+                    letterO.setEnabled(true);
+                    letterP.setEnabled(true);
+                    letterQ.setEnabled(true);
+                    letterR.setEnabled(true);
+                    letterS.setEnabled(true);
+                    letterT.setEnabled(true);
+                    letterU.setEnabled(true);
+                    letterV.setEnabled(true);
+                    letterW.setEnabled(true);
+                    letterX.setEnabled(true);
+                    letterY.setEnabled(true);
+                    letterZ.setEnabled(true);
+                }
+                
                 if(Hangman.currentScore == 40) {
                     
                     playGame.setVisible(false);
@@ -764,37 +806,38 @@ public class Hangman{
                     for (int i=0;i<answer.length();i++){
                         displayedAnswer = displayedAnswer + "_ ";
                     }
+                    
                     letterA.setEnabled(true);
-                letterB.setEnabled(true);
-                letterC.setEnabled(true);
-                letterD.setEnabled(true);
-                letterE.setEnabled(true);
-                letterF.setEnabled(true);
-                letterG.setEnabled(true);
-                letterH.setEnabled(true);
-                letterI.setEnabled(true);
-                letterJ.setEnabled(true);
-                letterK.setEnabled(true);
-                letterL.setEnabled(true);
-                letterM.setEnabled(true);
-                letterN.setEnabled(true);
-                letterO.setEnabled(true);
-                letterP.setEnabled(true);
-                letterQ.setEnabled(true);
-                letterR.setEnabled(true);
-                letterS.setEnabled(true);
-                letterT.setEnabled(true);
-                letterU.setEnabled(true);
-                letterV.setEnabled(true);
-                letterW.setEnabled(true);
-                letterX.setEnabled(true);
-                letterY.setEnabled(true);
-                letterZ.setEnabled(true);
+                    letterB.setEnabled(true);
+                    letterC.setEnabled(true);
+                    letterD.setEnabled(true);
+                    letterE.setEnabled(true);
+                    letterF.setEnabled(true);
+                    letterG.setEnabled(true);
+                    letterH.setEnabled(true);
+                    letterI.setEnabled(true);
+                    letterJ.setEnabled(true);
+                    letterK.setEnabled(true);
+                    letterL.setEnabled(true);
+                    letterM.setEnabled(true);
+                    letterN.setEnabled(true);
+                    letterO.setEnabled(true);
+                    letterP.setEnabled(true);
+                    letterQ.setEnabled(true);
+                    letterR.setEnabled(true);
+                    letterS.setEnabled(true);
+                    letterT.setEnabled(true);
+                    letterU.setEnabled(true);
+                    letterV.setEnabled(true);
+                    letterW.setEnabled(true);
+                    letterX.setEnabled(true);
+                    letterY.setEnabled(true);
+                    letterZ.setEnabled(true);
                 }
                 
             }
         });
-        timer1.start();
+        updateFrames.start();
         
         playGame.setSize(600,400);  
         playGame.add(hangmanTitle); 
@@ -834,56 +877,6 @@ public class Hangman{
 
 
         //Score Frame
-        Timer timer2 = new Timer(500, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String numberAsString = Integer.toString(currentScore);
-                scoreText.setText(numberAsString);
-                
-                String withoutSpaces = displayedAnswer.replace(" ", "");
-                if (withoutSpaces.equals(answer)){
-                    playGame.setVisible(false);
-                    scoreFrame.setVisible(true);
-                    Random rand = new Random(); 
-                    int value = rand.nextInt(5);    
-                    //choosing a word
-                    answer = wordBank[value];
-
-                    displayedAnswer = "";
-                    for (int i=0;i<answer.length();i++){
-                        displayedAnswer = displayedAnswer + "_ ";
-                    }
-                    letterA.setEnabled(true);
-                letterB.setEnabled(true);
-                letterC.setEnabled(true);
-                letterD.setEnabled(true);
-                letterE.setEnabled(true);
-                letterF.setEnabled(true);
-                letterG.setEnabled(true);
-                letterH.setEnabled(true);
-                letterI.setEnabled(true);
-                letterJ.setEnabled(true);
-                letterK.setEnabled(true);
-                letterL.setEnabled(true);
-                letterM.setEnabled(true);
-                letterN.setEnabled(true);
-                letterO.setEnabled(true);
-                letterP.setEnabled(true);
-                letterQ.setEnabled(true);
-                letterR.setEnabled(true);
-                letterS.setEnabled(true);
-                letterT.setEnabled(true);
-                letterU.setEnabled(true);
-                letterV.setEnabled(true);
-                letterW.setEnabled(true);
-                letterX.setEnabled(true);
-                letterY.setEnabled(true);
-                letterZ.setEnabled(true);
-                 }
-            }
-        });
-        timer2.start();
-        
         scoreFrame.setSize(600,400);
         scoreFrame.add(scoreTitle);
         scoreFrame.add(scoreText);
@@ -932,9 +925,5 @@ public class Hangman{
             }
         }
         displayedAnswer = newAns;
-    }        
-    //Method for wrong answer
-    
-    
+    }            
 }
-//
