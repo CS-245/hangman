@@ -38,6 +38,7 @@ public class Hangman {
     JPanel highScorePg = new JPanel(new BorderLayout());
     JPanel gamePg = new JPanel();
     JPanel scorePg = new JPanel();
+    Painter p = new Painter();
 
     // constuctor
     // purpose: create windows that make the Hangman game
@@ -139,7 +140,54 @@ public class Hangman {
         JButton letterW = new JButton("W");
         JButton letterX = new JButton("X");
         JButton letterY = new JButton("Y");
-        JButton letterZ = new JButton("Z");        
+        JButton letterZ = new JButton("Z");
+
+        //Positioning
+        titleText.setBounds(140,50,500,150);
+        teamText.setBounds(230,300,200,50);
+        playButton.setBounds(400,185,150,30);  
+        highScoreButton.setBounds(400,235,150,30);  
+        creditsButton.setBounds(400,285,150,30);
+        backButtonHS.setBounds(25,300,95,30);   
+        backButtonCF.setBounds(25,300,95,30);
+        jennaBarrett.setBounds(250,125,200,100);
+        lennyYang.setBounds(250,150,200,100);
+        rachelFrodsham.setBounds(250,175,200,100);
+        pastaImage.setBounds(10, 0, 400, 400);
+        titleCredit.setBounds(250,75,100,100);
+//        highScores.setBounds(250,10,300,150);
+        hangmanTitle.setBounds(25,-10,500,100);        
+        skipButton.setBounds(400,100,100,30);
+//        scoreTitle.setBounds(200, -10, 500, 100);
+        scoreText.setBounds(250, 100, 500, 100);
+        endButton.setBounds(400,285,150,30);
+        answerText.setBounds(150,175,300,100);
+        letterA.setBounds(40,275,30,30);
+        letterB.setBounds(80,275,30,30);
+        letterC.setBounds(120,275,30,30);
+        letterD.setBounds(160,275,30,30);
+        letterE.setBounds(200,275,30,30);
+        letterF.setBounds(240,275,30,30);
+        letterG.setBounds(280,275,30,30);
+        letterH.setBounds(320,275,30,30);
+        letterI.setBounds(360,275,30,30);
+        letterJ.setBounds(400,275,30,30);
+        letterK.setBounds(440,275,30,30);
+        letterL.setBounds(480,275,30,30);
+        letterM.setBounds(520,275,30,30);
+        letterN.setBounds(40,310,30,30);
+        letterO.setBounds(80,310,30,30);
+        letterP.setBounds(120,310,30,30);
+        letterQ.setBounds(160,310,30,30);
+        letterR.setBounds(200,310,30,30);
+        letterS.setBounds(240,310,30,30);
+        letterT.setBounds(280,310,30,30);
+        letterU.setBounds(320,310,30,30);
+        letterV.setBounds(360,310,30,30);
+        letterW.setBounds(400,310,30,30);
+        letterX.setBounds(440,310,30,30);
+        letterY.setBounds(480,310,30,30);
+        letterZ.setBounds(520,310,30,30);        
                 
         //setting margins
         letterA.setMargin(new Insets(0, 0, 0, 0));
@@ -258,7 +306,8 @@ public class Hangman {
         gamePg.add(letterW);
         gamePg.add(letterX);
         gamePg.add(letterY);
-        Painter p = new Painter();
+        gamePg.add(letterZ);
+        p.setVisible(true);
         gamePg.add(p);
         
         //Score Page uses BoxLayout
@@ -812,6 +861,7 @@ public class Hangman {
     public static void rightAnswer(char guess) {
         rightAnswer(guess, answer, displayedAnswer);
     }
+    
     public static void rightAnswer(char guess, String answer, String displayedAns) {
         String newAns = "";
         for (int i = 0; i < answer.length(); i++) {
