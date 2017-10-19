@@ -35,7 +35,7 @@ public class PaintPanel extends JPanel {
 	    if(Hangman.currentScore == 70) { //L arm
             g2.drawOval(300, 50, 50, 50);
             g2.drawLine(325, 100, 325, 120);
-            g2.drawLine(325, 110, 300, 120);
+            g2.drawLine(325, 110, 300, 120); 
         }
 	    if(Hangman.currentScore == 60) { //R arm
             g2.drawOval(300, 50, 50, 50);
