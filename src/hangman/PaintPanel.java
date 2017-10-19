@@ -756,11 +756,11 @@ public class Hangman {
                 scoreText.setText(numberAsString);
                 String withoutSpaces = displayedAnswer.replace(" ", "");
                 
-//                try {
-//                    printHighScores();
-//                } catch (IOException ex) {
-//                    Logger.getLogger(Hangman.class.getName()).log(Level.SEVERE, null, ex);
-//                }
+                try {
+                    printHighScores();
+                } catch (IOException ex) {
+                    Logger.getLogger(Hangman.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 highScores.setText(displayHighScores);
                 
                 if (withoutSpaces.equals(answer)) {
@@ -860,7 +860,7 @@ public class Hangman {
             char a = answer.charAt(i);
             if (a == guess) {
                 newAns = newAns + guess + " ";
-                //newAns.charAt(i).equals(answer.charAt(i));
+                newAns.charAt(i).equals(answer.charAt(i));
             } else if (displayedAns.contains(Character.toString(a))) {
                 newAns = newAns + a + " ";
             } else {
