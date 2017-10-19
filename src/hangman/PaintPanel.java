@@ -277,7 +277,6 @@ public class Hangman {
         top.add(skipButton);
         gamePg.add(top, BorderLayout.NORTH);
         gamePg.add(answerText);
-        //gamePg.add(displayedAnswer);
         gamePg.add(letterA);
         gamePg.add(letterB);
         gamePg.add(letterC);
@@ -860,7 +859,7 @@ public class Hangman {
             char a = answer.charAt(i);
             if (a == guess) {
                 newAns = newAns + guess + " ";
-                newAns.charAt(i).equals(answer.charAt(i));
+                //newAns.charAt(i).equals(answer.charAt(i));
             } else if (displayedAns.contains(Character.toString(a))) {
                 newAns = newAns + a + " ";
             } else {
@@ -897,7 +896,7 @@ public class Hangman {
         String newHS = "";
         for(int x = 0; x < tokens.length; x++){
             String highScores = tokens[x][0] + " " + tokens[x][1] + "<br/>";
-            //newHS = newHS + highScores;
+            newHS = newHS + highScores;
         }
         String combinedString = "<html>" + newHS + "<html>";
         
