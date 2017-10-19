@@ -310,9 +310,11 @@ public class Hangman {
         scorePg.setLayout(new BoxLayout(scorePg, BoxLayout.Y_AXIS));
         yourScTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
         scoreText.setAlignmentX(Component.CENTER_ALIGNMENT);
+        highScoreName.setAlignmentX(Component.CENTER_ALIGNMENT);
         endButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         scorePg.add(yourScTitle);
         scorePg.add(Box.createRigidArea(new Dimension(0,100))); //creates padding
+        scorePg.add(highScoreName);
         scorePg.add(scoreText);
         scorePg.add(Box.createRigidArea(new Dimension(0,125))); //creates padding
         scorePg.add(endButton);
@@ -754,6 +756,7 @@ public class Hangman {
                 String numberAsString = Integer.toString(currentScore);
                 scoreText.setText(numberAsString);
                 String withoutSpaces = displayedAnswer.replace(" ", "");
+                
                 
                 try {
                     printHighScores();
