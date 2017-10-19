@@ -6,3 +6,5 @@ LOL 0
 LOL 0
 Yeah 100
 Lenny 90
+Wow 0
+LEN 70
