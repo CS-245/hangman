@@ -13,10 +13,6 @@ import javax.swing.JPanel;
 
 public class PaintPanel extends JPanel {
 
-//    public Dimension getPreferredSize() {
-//        return new Dimension(250, 200);
-//    }
-
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
@@ -28,7 +24,6 @@ public class PaintPanel extends JPanel {
         g2.drawLine(200, 150, 350, 150);
         
             if(Hangman.currentScore == 90) { //head
-            System.out.println("head");
             g2.drawOval(300, 50, 50, 50);
         }
 	    if(Hangman.currentScore == 80) { //body
