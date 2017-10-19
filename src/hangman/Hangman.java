@@ -243,7 +243,7 @@ public class Hangman {
         menuButtons.add(Box.createRigidArea(new Dimension(25,100))); //creates padding
         menuPg.add(menuButtons, BorderLayout.EAST);
         
-        //Credits Page
+        //Credits Page uses boxlayout
         creditsPg.setLayout(new BoxLayout(creditsPg, BoxLayout.Y_AXIS));
         titleCredit.setAlignmentX(Component.CENTER_ALIGNMENT);
         jennaBarrett.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -259,7 +259,7 @@ public class Hangman {
         creditsPg.add(Box.createRigidArea(new Dimension(0,150)));
         creditsPg.add(backButtonCF);
         
-        //High Score Page 
+        //High Score Page uses boxlayout
         highScorePg.setLayout(new BoxLayout(highScorePg, BoxLayout.Y_AXIS));
         highScTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
         backButtonHS.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -277,7 +277,6 @@ public class Hangman {
         top.add(skipButton);
         gamePg.add(top, BorderLayout.NORTH);
         gamePg.add(answerText);
-        //gamePg.add(displayedAnswer);
         gamePg.add(letterA);
         gamePg.add(letterB);
         gamePg.add(letterC);
@@ -308,18 +307,15 @@ public class Hangman {
         
         
         //Score Page uses BoxLayout
-        //with internal panels for extra formatting
         scorePg.setLayout(new BoxLayout(scorePg, BoxLayout.Y_AXIS));
         yourScTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
         scoreText.setAlignmentX(Component.CENTER_ALIGNMENT);
-        creditsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        scorePg.add(Box.createRigidArea(new Dimension(0,25))); //creates padding
+        endButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         scorePg.add(yourScTitle);
-        scorePg.add(highScoreName);
+        scorePg.add(Box.createRigidArea(new Dimension(0,100))); //creates padding
         scorePg.add(scoreText);
+        scorePg.add(Box.createRigidArea(new Dimension(0,125))); //creates padding
         scorePg.add(endButton);
-        scorePg.add(Box.createRigidArea(new Dimension(0,300))); //creates padding
-
         
         
         //Pages and Frame Set Up
@@ -444,7 +440,6 @@ public class Hangman {
                 letterA.setEnabled(false);
                 if (answer.contains("a")) {
                     rightAnswer('a');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -457,7 +452,6 @@ public class Hangman {
                 letterB.setEnabled(false);
                 if (answer.contains("b")) {
                     rightAnswer('b');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -470,7 +464,6 @@ public class Hangman {
                 letterC.setEnabled(false);
                 if (answer.contains("c")) {
                     rightAnswer('c');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -483,7 +476,6 @@ public class Hangman {
                 letterD.setEnabled(false);
                 if (answer.contains("d")) {
                     rightAnswer('d');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -496,7 +488,6 @@ public class Hangman {
                 letterE.setEnabled(false);
                 if (answer.contains("e")) {
                     rightAnswer('e');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -508,7 +499,6 @@ public class Hangman {
                 letterF.setEnabled(false);
                 if (answer.contains("f")) {
                     rightAnswer('f');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -520,7 +510,6 @@ public class Hangman {
                 letterG.setEnabled(false);
                 if (answer.contains("g")) {
                     rightAnswer('g');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -532,7 +521,6 @@ public class Hangman {
                 letterH.setEnabled(false);
                 if (answer.contains("h")) {
                     rightAnswer('h');
-                    answerText.setText(displayedAnswer);
                 }          
                 else {
                     currentScore -= 10;
@@ -545,7 +533,6 @@ public class Hangman {
                 letterI.setEnabled(false);
                 if (answer.contains("i")) {
                     rightAnswer('i');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -558,7 +545,6 @@ public class Hangman {
                 letterJ.setEnabled(false);
                 if (answer.contains("j")) {
                     rightAnswer('j');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -572,7 +558,6 @@ public class Hangman {
                 letterK.setEnabled(false);
                 if (answer.contains("k")) {
                     rightAnswer('k');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -585,7 +570,6 @@ public class Hangman {
                 letterL.setEnabled(false);
                 if (answer.contains("l")) {
                     rightAnswer('l');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -598,7 +582,6 @@ public class Hangman {
                 letterM.setEnabled(false);
                 if (answer.contains("m")) {
                     rightAnswer('m');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -611,7 +594,6 @@ public class Hangman {
                 letterN.setEnabled(false);
                 if (answer.contains("n")) {
                     rightAnswer('n');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -624,7 +606,6 @@ public class Hangman {
                 letterO.setEnabled(false);
                 if (answer.contains("o")) {
                     rightAnswer('o');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -637,7 +618,6 @@ public class Hangman {
                 letterP.setEnabled(false);
                 if (answer.contains("p")) {
                     rightAnswer('p');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -650,7 +630,6 @@ public class Hangman {
                 letterQ.setEnabled(false);
                 if (answer.contains("q")) {
                     rightAnswer('q');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -663,7 +642,6 @@ public class Hangman {
                 letterR.setEnabled(false);
                 if (answer.contains("r")) {
                     rightAnswer('r');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -676,7 +654,6 @@ public class Hangman {
                 letterS.setEnabled(false);
                 if (answer.contains("s")) {
                     rightAnswer('s');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -689,7 +666,6 @@ public class Hangman {
                 letterT.setEnabled(false);
                 if (answer.contains("t")) {
                     rightAnswer('t');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -702,7 +678,6 @@ public class Hangman {
                 letterU.setEnabled(false);
                 if (answer.contains("u")) {
                     rightAnswer('u');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -715,7 +690,6 @@ public class Hangman {
                 letterV.setEnabled(false);
                 if (answer.contains("v")) {
                     rightAnswer('v');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -728,7 +702,6 @@ public class Hangman {
                 letterW.setEnabled(false);
                 if (answer.contains("w")) {
                     rightAnswer('w');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -741,7 +714,6 @@ public class Hangman {
                 letterX.setEnabled(false);
                 if (answer.contains("x")) {
                     rightAnswer('x');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -754,7 +726,6 @@ public class Hangman {
                 letterY.setEnabled(false);
                 if (answer.contains("y")) {
                     rightAnswer('y');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -767,7 +738,6 @@ public class Hangman {
                 letterZ.setEnabled(false);
                 if (answer.contains("z")) {
                     rightAnswer('z');
-                    answerText.setText(displayedAnswer);
                 } else {
                     currentScore -= 10;
                     pp.repaint(0, 100, 25, 260, 135);
@@ -780,7 +750,6 @@ public class Hangman {
         Timer updateFrames = new Timer(1, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
                 answerText.setText(displayedAnswer);
                 String numberAsString = Integer.toString(currentScore);
                 scoreText.setText(numberAsString);
