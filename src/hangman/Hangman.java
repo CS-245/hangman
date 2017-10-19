@@ -4,7 +4,7 @@
  * class: CS245 – Graphic User Interface (GUI)
  *
  * assignment: Point and Click Game – v.1.0
- * date last modified: 10/18/2017
+ * date last modified: 10/19/2017
  *
  * purpose: This program creates the hangman game with Java code
  *
@@ -26,9 +26,18 @@ import java.util.logging.Logger;
 public class Hangman {
 
     public static int currentScore = 100;
+    static int bubbleRound = 0;
+    static int colorValue = 0;
+    static int[] index = {0,1,2,3,4};
+    static int[] xPosArray = {50,450,290,235,120};
+    static int[] yPosArray = {230,190,100,250,90};
     static String answer;
     static String displayedAnswer;
     static String displayHighScores;
+	static String color;
+    static String color2;
+    static Color purple = new Color(198, 24, 186);
+    static int[][] coordinates = new int[5][10];
 
     JFrame mainFr = new JFrame("Hangman");
     //a CardLayout is like a stack of cards, where only the top card is visible at a time.
@@ -101,6 +110,74 @@ public class Hangman {
             displayedAnswer = displayedAnswer + "_ ";
         }
 
+        //bubble game
+        String[] colors = new String[5];
+        colors[0] = "Red";
+        colors[1] = "Yellow";
+        colors[2] = "Green";
+        colors[3] = "Blue";
+        colors[4] = "Purple";
+        
+        Random randColor = new Random();
+        colorValue = randColor.nextInt(5);
+        color = colors[colorValue];
+        colorValue = randColor.nextInt(5);
+        color2 = colors[colorValue];
+        
+        
+        //color button positions
+        
+        coordinates[0][0] = xPosArray[0];
+        coordinates[0][1] = yPosArray[0];
+        coordinates[0][2] = xPosArray[1];
+        coordinates[0][3] = yPosArray[1];
+        coordinates[0][4] = xPosArray[2];
+        coordinates[0][5] = yPosArray[2];
+        coordinates[0][6] = xPosArray[3];
+        coordinates[0][7] = yPosArray[3];
+        coordinates[0][8] = xPosArray[4];
+        coordinates[0][9] = yPosArray[4];
+        coordinates[1][0] = xPosArray[1];
+        coordinates[1][1] = yPosArray[1];
+        coordinates[1][2] = xPosArray[2];
+        coordinates[1][3] = yPosArray[2];
+        coordinates[1][4] = xPosArray[3];
+        coordinates[1][5] = yPosArray[3];
+        coordinates[1][6] = xPosArray[4];
+        coordinates[1][7] = yPosArray[4];
+        coordinates[1][8] = xPosArray[0];
+        coordinates[1][9] = yPosArray[0];
+        coordinates[2][0] = xPosArray[2];
+        coordinates[2][1] = yPosArray[2];
+        coordinates[2][2] = xPosArray[3];
+        coordinates[2][3] = yPosArray[3];
+        coordinates[2][4] = xPosArray[4];
+        coordinates[2][5] = yPosArray[4];
+        coordinates[2][6] = xPosArray[0];
+        coordinates[2][7] = yPosArray[0];
+        coordinates[2][8] = xPosArray[1];
+        coordinates[2][9] = yPosArray[1];
+        coordinates[3][0] = xPosArray[3];
+        coordinates[3][1] = yPosArray[3];
+        coordinates[3][2] = xPosArray[4];
+        coordinates[3][3] = yPosArray[4];
+        coordinates[3][4] = xPosArray[0];
+        coordinates[3][5] = yPosArray[0];
+        coordinates[3][6] = xPosArray[1];
+        coordinates[3][7] = yPosArray[1];
+        coordinates[3][8] = xPosArray[2];
+        coordinates[3][9] = yPosArray[2];
+        coordinates[4][0] = xPosArray[4];
+        coordinates[4][1] = yPosArray[4];
+        coordinates[4][2] = xPosArray[0];
+        coordinates[4][3] = yPosArray[0];
+        coordinates[4][4] = xPosArray[1];
+        coordinates[4][5] = yPosArray[1];
+        coordinates[4][6] = xPosArray[2];
+        coordinates[4][7] = yPosArray[2];
+        coordinates[4][8] = xPosArray[3];
+        coordinates[4][9] = yPosArray[3];
+
         titleText.setFont(new Font("Serif", Font.BOLD, 30));
         teamText.setFont(new Font("Curlz MT", Font.PLAIN, 30));
         titleCredit.setFont(new Font("Serif", Font.BOLD, 20));
@@ -110,6 +187,31 @@ public class Hangman {
         answerText.setFont(new Font("Serif", Font.BOLD, 35));
         highScores.setFont(new Font("Serif", Font.BOLD, 20));
         hangmanTitle.setFont(new Font("AR DESTINE", Font.PLAIN, 35));
+        bubbleGameTitle.setFont(new Font("AR DESTINE", Font.PLAIN, 35));
+        bubbleText.setFont(new Font("AR DESTINE", Font.PLAIN, 35));
+        
+        switch(color2){
+            case "Red":{
+                bubbleText.setForeground(Color.red);
+                break;
+            }
+            case "Yellow":{
+                bubbleText.setForeground(Color.yellow);
+                break;
+            }
+            case "Blue":{
+                bubbleText.setForeground(Color.blue);
+                break;
+            }
+            case "Green":{
+                bubbleText.setForeground(Color.green);
+                break;
+            }
+            case "Purple":{
+                bubbleText.setForeground(purple);
+                break;
+            }
+        }
         
         //Text Field
         JTextField highScoreName = new JTextField();
@@ -152,6 +254,17 @@ public class Hangman {
         JButton letterX = new JButton("X");
         JButton letterY = new JButton("Y");
         JButton letterZ = new JButton("Z");
+		JButton redButton = new JButton();
+        JButton yellowButton = new JButton();
+        JButton blueButton = new JButton();
+        JButton greenButton = new JButton();
+        JButton purpleButton = new JButton();
+        
+        redButton.setBackground(Color.red);
+        yellowButton.setBackground(Color.yellow);
+        blueButton.setBackground(Color.blue);
+        greenButton.setBackground(Color.green);
+        purpleButton.setBackground(purple);
                 
         //setting margins
         letterA.setMargin(new Insets(0, 0, 0, 0));
@@ -209,6 +322,11 @@ public class Hangman {
         letterX.setBounds(440,310,30,30);
         letterY.setBounds(480,310,30,30);
         letterZ.setBounds(520,310,30,30);    
+		redButton.setBounds(50,230,100,100);
+        yellowButton.setBounds(450,190,100,100);
+        blueButton.setBounds(290,100,100,100);
+        greenButton.setBounds(235,250,100,100);
+        purpleButton.setBounds(120,90,100,100);
         
         
         //Title Page uses BoxLayout
@@ -304,6 +422,17 @@ public class Hangman {
         gamePg.add(letterY);
         gamePg.add(letterZ);
         gamePg.add(pp);
+
+		//Bubble Game page
+        bubblePg.setLayout(null);
+        bubblePg.add(bubbleGameTitle);
+        bubblePg.add(bubbleText);
+        bubblePg.add(redButton);
+        bubblePg.add(yellowButton);
+        bubblePg.add(blueButton);
+        bubblePg.add(greenButton);
+        bubblePg.add(purpleButton);
+        //bubblePg.add(currentScore);
         
         
         //Score Page uses BoxLayout
@@ -381,7 +510,7 @@ public class Hangman {
         skipButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 currentScore = 0;
-                cl.show(pages, "scorePg");
+                cl.show(pages, "bubblePg");
                 Random rand = new Random();
                 int value = rand.nextInt(5);
                 //choosing a word
@@ -746,6 +875,264 @@ public class Hangman {
                 }
             }
         });
+        
+        redButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                bubbleRound++;
+                if (color2.equals("Red")){
+                    currentScore +=100;
+                }
+                colorValue = randColor.nextInt(5);
+                color = colors[colorValue];
+                colorValue = randColor.nextInt(5);
+                color2 = colors[colorValue];
+                if(color.equals(color2)){
+                    colorValue = randColor.nextInt(5);
+                    color2 = colors[colorValue];
+                }
+                bubbleText.setText(color);
+                switch(color2){
+                    case "Red":{
+                        bubbleText.setForeground(Color.red);
+                        break;
+                    }
+                    case "Yellow":{
+                     bubbleText.setForeground(Color.yellow);
+                        break;
+                    }
+                    case "Blue":{
+                        bubbleText.setForeground(Color.blue);
+                        break;
+                    }
+                    case "Green":{
+                        bubbleText.setForeground(Color.green);
+                        break;
+                    }
+                    case "Purple":{
+                        bubbleText.setForeground(purple);
+                        break;
+                    }
+                }
+                Random rand = new Random();
+                int value = rand.nextInt(5);
+                 
+                redButton.setBounds(coordinates[value][0],coordinates[value][1],100,100);
+                yellowButton.setBounds(coordinates[value][2],coordinates[value][3],100,100);
+                blueButton.setBounds(coordinates[value][4],coordinates[value][5],100,100);
+                greenButton.setBounds(coordinates[value][6],coordinates[value][7],100,100);
+                purpleButton.setBounds(coordinates[value][8],coordinates[value][9],100,100);
+                
+                if (bubbleRound == 5){
+                   cl.show(pages, "scorePg");
+                }
+            }
+        });
+        
+        yellowButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                bubbleRound++;
+                if (color2.equals("Yellow")){
+                    currentScore +=100;
+                }
+                colorValue = randColor.nextInt(5);
+                color = colors[colorValue];
+                colorValue = randColor.nextInt(5);
+                color2 = colors[colorValue];
+                if(color.equals(color2)){
+                    colorValue = randColor.nextInt(5);
+                    color2 = colors[colorValue];
+                }
+                bubbleText.setText(color);
+                switch(color2){
+                    case "Red":{
+                        bubbleText.setForeground(Color.red);
+                        break;
+                    }
+                    case "Yellow":{
+                     bubbleText.setForeground(Color.yellow);
+                        break;
+                    }
+                    case "Blue":{
+                        bubbleText.setForeground(Color.blue);
+                        break;
+                    }
+                    case "Green":{
+                        bubbleText.setForeground(Color.green);
+                        break;
+                    }
+                    case "Purple":{
+                        bubbleText.setForeground(purple);
+                        break;
+                    }
+                }
+                Random rand = new Random();
+                int value = rand.nextInt(5);
+                 
+                redButton.setBounds(coordinates[value][0],coordinates[value][1],100,100);
+                yellowButton.setBounds(coordinates[value][2],coordinates[value][3],100,100);
+                blueButton.setBounds(coordinates[value][4],coordinates[value][5],100,100);
+                greenButton.setBounds(coordinates[value][6],coordinates[value][7],100,100);
+                purpleButton.setBounds(coordinates[value][8],coordinates[value][9],100,100);
+                
+                if (bubbleRound == 5){
+                   cl.show(pages, "scorePg");
+                }
+            }
+        });
+        
+        blueButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                bubbleRound++;
+                if (color2.equals("Blue")){
+                    currentScore +=100;
+                }
+                colorValue = randColor.nextInt(5);
+                color = colors[colorValue];
+                colorValue = randColor.nextInt(5);
+                color2 = colors[colorValue];
+                if(color.equals(color2)){
+                    colorValue = randColor.nextInt(5);
+                    color2 = colors[colorValue];
+                }
+                bubbleText.setText(color);
+                switch(color2){
+                    case "Red":{
+                        bubbleText.setForeground(Color.red);
+                        break;
+                    }
+                    case "Yellow":{
+                     bubbleText.setForeground(Color.yellow);
+                        break;
+                    }
+                    case "Blue":{
+                        bubbleText.setForeground(Color.blue);
+                        break;
+                    }
+                    case "Green":{
+                        bubbleText.setForeground(Color.green);
+                        break;
+                    }
+                    case "Purple":{
+                        bubbleText.setForeground(purple);
+                        break;
+                    }
+                }
+                Random rand = new Random();
+                int value = rand.nextInt(5);
+                 
+                redButton.setBounds(coordinates[value][0],coordinates[value][1],100,100);
+                yellowButton.setBounds(coordinates[value][2],coordinates[value][3],100,100);
+                blueButton.setBounds(coordinates[value][4],coordinates[value][5],100,100);
+                greenButton.setBounds(coordinates[value][6],coordinates[value][7],100,100);
+                purpleButton.setBounds(coordinates[value][8],coordinates[value][9],100,100);
+                
+                if (bubbleRound == 5){
+                   cl.show(pages, "scorePg");
+                }
+            }
+        });
+        greenButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                bubbleRound++;
+                if (color2.equals("Green")){
+                        currentScore +=100;
+                }
+                colorValue = randColor.nextInt(5);
+                color = colors[colorValue];
+                colorValue = randColor.nextInt(5);
+                color2 = colors[colorValue];
+                if(color.equals(color2)){
+                    colorValue = randColor.nextInt(5);
+                    color2 = colors[colorValue];
+                }
+                bubbleText.setText(color);
+                switch(color2){
+                    case "Red":{
+                        bubbleText.setForeground(Color.red);
+                        break;
+                    }
+                    case "Yellow":{
+                     bubbleText.setForeground(Color.yellow);
+                        break;
+                    }
+                    case "Blue":{
+                        bubbleText.setForeground(Color.blue);
+                        break;
+                    }
+                    case "Green":{
+                        bubbleText.setForeground(Color.green);
+                        break;
+                    }
+                    case "Purple":{
+                        bubbleText.setForeground(purple);
+                        break;
+                    }
+                }
+                Random rand = new Random();
+                int value = rand.nextInt(5);
+                 
+                redButton.setBounds(coordinates[value][0],coordinates[value][1],100,100);
+                yellowButton.setBounds(coordinates[value][2],coordinates[value][3],100,100);
+                blueButton.setBounds(coordinates[value][4],coordinates[value][5],100,100);
+                greenButton.setBounds(coordinates[value][6],coordinates[value][7],100,100);
+                purpleButton.setBounds(coordinates[value][8],coordinates[value][9],100,100);
+                
+                if (bubbleRound == 5){
+                   cl.show(pages, "scorePg");
+                }
+            }
+        });
+        purpleButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                bubbleRound++;
+                if (color2.equals("Purple")){
+                    currentScore +=100;
+                }
+                colorValue = randColor.nextInt(5);
+                color = colors[colorValue];
+                colorValue = randColor.nextInt(5);
+                color2 = colors[colorValue];
+                if(color.equals(color2)){
+                    colorValue = randColor.nextInt(5);
+                    color2 = colors[colorValue];
+                }
+                bubbleText.setText(color);
+                switch(color2){
+                    case "Red":{
+                        bubbleText.setForeground(Color.red);
+                        break;
+                    }
+                    case "Yellow":{
+                     bubbleText.setForeground(Color.yellow);
+                        break;
+                    }
+                    case "Blue":{
+                        bubbleText.setForeground(Color.blue);
+                        break;
+                    }
+                    case "Green":{
+                        bubbleText.setForeground(Color.green);
+                        break;
+                    }
+                    case "Purple":{
+                        bubbleText.setForeground(purple);
+                        break;
+                    }
+                }
+                Random rand = new Random();
+                int value = rand.nextInt(5);
+                 
+                redButton.setBounds(coordinates[value][0],coordinates[value][1],100,100);
+                yellowButton.setBounds(coordinates[value][2],coordinates[value][3],100,100);
+                blueButton.setBounds(coordinates[value][4],coordinates[value][5],100,100);
+                greenButton.setBounds(coordinates[value][6],coordinates[value][7],100,100);
+                purpleButton.setBounds(coordinates[value][8],coordinates[value][9],100,100);
+                
+                if (bubbleRound == 5){
+                   cl.show(pages, "scorePg");
+                }
+            }
+        });
       
 
         //Hangman Set Up
@@ -766,7 +1153,7 @@ public class Hangman {
                 highScores.setText(displayHighScores);
                 
                 if (withoutSpaces.equals(answer)) {
-                    cl.show(pages, "scorePg");
+                    cl.show(pages, "bubblePg");
                     Random rand = new Random();
                     int value = rand.nextInt(5);
                     answer = wordBank[value]; //chooses a word
@@ -805,7 +1192,7 @@ public class Hangman {
                 }
 
                 if (Hangman.currentScore == 40) {
-                    cl.show(pages, "scorePg");
+                    cl.show(pages, "bubblePg");
                     Random rand = new Random();
                     int value = rand.nextInt(5);
                     //choosing a word
