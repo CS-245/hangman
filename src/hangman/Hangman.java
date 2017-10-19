@@ -4,7 +4,7 @@
  * class: CS245 – Graphic User Interface (GUI)
  *
  * assignment: Point and Click Game – v.1.0
- * date last modified: 10/16/2017
+ * date last modified: 10/18/2017
  *
  * purpose: This program creates the hangman game with Java code
  *
@@ -22,7 +22,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.BorderFactory;
 
 public class Hangman {
 
@@ -44,7 +43,8 @@ public class Hangman {
     JPanel gamePg = new JPanel();
     JPanel scorePg = new JPanel();
     JPanel bubblePg = new JPanel();
-    Painter p = new Painter();
+    
+    PaintPanel pp = new PaintPanel();
     
     // constuctor
     // purpose: create windows that make the Hangman game
@@ -152,46 +152,6 @@ public class Hangman {
         JButton letterX = new JButton("X");
         JButton letterY = new JButton("Y");
         JButton letterZ = new JButton("Z");
-
-        //Positioning
-        jennaBarrett.setBounds(250,125,200,100);
-        lennyYang.setBounds(250,150,200,100);
-        rachelFrodsham.setBounds(250,175,200,100);
-        pastaImage.setBounds(10, 0, 400, 400);
-        titleCredit.setBounds(250,75,100,100);
-        hangmanTitle.setBounds(25,-10,500,100);        
-        skipButton.setBounds(400,100,100,30);
-        scoreText.setBounds(250, 100, 500, 100);
-        endButton.setBounds(400,285,150,30);
-        answerText.setBounds(150,175,300,100);
-        letterA.setBounds(40,275,30,30);
-        letterB.setBounds(80,275,30,30);
-        letterC.setBounds(120,275,30,30);
-        letterD.setBounds(160,275,30,30);
-        letterE.setBounds(200,275,30,30);
-        letterF.setBounds(240,275,30,30);
-        letterG.setBounds(280,275,30,30);
-        letterH.setBounds(320,275,30,30);
-        letterI.setBounds(360,275,30,30);
-        letterJ.setBounds(400,275,30,30);
-        letterK.setBounds(440,275,30,30);
-        letterL.setBounds(480,275,30,30);
-        letterM.setBounds(520,275,30,30);
-        letterN.setBounds(40,310,30,30);
-        letterO.setBounds(80,310,30,30);
-        letterP.setBounds(120,310,30,30);
-        letterQ.setBounds(160,310,30,30);
-        letterR.setBounds(200,310,30,30);
-        letterS.setBounds(240,310,30,30);
-        letterT.setBounds(280,310,30,30);
-        letterU.setBounds(320,310,30,30);
-        letterV.setBounds(360,310,30,30);
-        letterW.setBounds(400,310,30,30);
-        letterX.setBounds(440,310,30,30);
-        letterY.setBounds(480,310,30,30);
-        letterZ.setBounds(520,310,30,30);    
-        highScoreName.setBounds(50,100, 100,30);  
-
                 
         //setting margins
         letterA.setMargin(new Insets(0, 0, 0, 0));
@@ -220,6 +180,35 @@ public class Hangman {
         letterX.setMargin(new Insets(0, 0, 0, 0));
         letterY.setMargin(new Insets(0, 0, 0, 0));
         letterZ.setMargin(new Insets(0, 0, 0, 0));
+        
+        //Positioning
+        answerText.setBounds(150,175,300,100);
+        letterA.setBounds(40,275,30,30);
+        letterB.setBounds(80,275,30,30);
+        letterC.setBounds(120,275,30,30);
+        letterD.setBounds(160,275,30,30);
+        letterE.setBounds(200,275,30,30);
+        letterF.setBounds(240,275,30,30);
+        letterG.setBounds(280,275,30,30);
+        letterH.setBounds(320,275,30,30);
+        letterI.setBounds(360,275,30,30);
+        letterJ.setBounds(400,275,30,30);
+        letterK.setBounds(440,275,30,30);
+        letterL.setBounds(480,275,30,30);
+        letterM.setBounds(520,275,30,30);
+        letterN.setBounds(40,310,30,30);
+        letterO.setBounds(80,310,30,30);
+        letterP.setBounds(120,310,30,30);
+        letterQ.setBounds(160,310,30,30);
+        letterR.setBounds(200,310,30,30);
+        letterS.setBounds(240,310,30,30);
+        letterT.setBounds(280,310,30,30);
+        letterU.setBounds(320,310,30,30);
+        letterV.setBounds(360,310,30,30);
+        letterW.setBounds(400,310,30,30);
+        letterX.setBounds(440,310,30,30);
+        letterY.setBounds(480,310,30,30);
+        letterZ.setBounds(520,310,30,30);    
         
         
         //Title Page uses BoxLayout
@@ -279,11 +268,14 @@ public class Hangman {
         highScorePg.add(highScores);
         highScorePg.add(backButtonHS);
         
-        //Game Page
-        gamePg.setLayout(null);
-        gamePg.add(hangmanTitle);
-        gamePg.add(time);
-        gamePg.add(skipButton);
+        //Game Page uses borderlayout with flowlayout for top
+        gamePg.setLayout(new BorderLayout());
+        JPanel top = new JPanel();
+        time.setBorder(BorderFactory.createEmptyBorder(0, 200, 0, 10)); //to add padding, U L D R
+        top.add(hangmanTitle);
+        top.add(time);
+        top.add(skipButton);
+        gamePg.add(top, BorderLayout.NORTH);
         gamePg.add(answerText);
         gamePg.add(letterA);
         gamePg.add(letterB);
@@ -311,14 +303,16 @@ public class Hangman {
         gamePg.add(letterX);
         gamePg.add(letterY);
         gamePg.add(letterZ);
-        p.setVisible(true);
-        gamePg.add(p);
+        //p.setVisible(true);
+        //gamePg.add(p);
+        gamePg.add(pp);
+        
         
         //Score Page uses BoxLayout
         //with internal panels for extra formatting
         scorePg.setLayout(new BoxLayout(scorePg, BoxLayout.Y_AXIS));
         yourScTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
-//        scoreText.setAlignmentX(Component.CENTER_ALIGNMENT);
+        scoreText.setAlignmentX(Component.CENTER_ALIGNMENT);
         creditsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         scorePg.add(Box.createRigidArea(new Dimension(0,25))); //creates padding
         scorePg.add(yourScTitle);
@@ -452,9 +446,8 @@ public class Hangman {
                 if (answer.contains("a")) {
                     rightAnswer('a');
                 } else {
-                    //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 500, 200, 200);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -465,9 +458,8 @@ public class Hangman {
                 if (answer.contains("b")) {
                     rightAnswer('b');
                 } else {
-                    //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -478,9 +470,8 @@ public class Hangman {
                 if (answer.contains("c")) {
                     rightAnswer('c');
                 } else {
-                    //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -491,9 +482,8 @@ public class Hangman {
                 if (answer.contains("d")) {
                     rightAnswer('d');
                 } else {
-                    //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -504,9 +494,8 @@ public class Hangman {
                 if (answer.contains("e")) {
                     rightAnswer('e');
                 } else {
-                    //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -516,9 +505,8 @@ public class Hangman {
                 if (answer.contains("f")) {
                     rightAnswer('f');
                 } else {
-                    //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -528,9 +516,8 @@ public class Hangman {
                 if (answer.contains("g")) {
                     rightAnswer('g');
                 } else {
-                    //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -548,9 +535,8 @@ public class Hangman {
                 if (answer.contains("i")) {
                     rightAnswer('i');
                 } else {
-                    //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -561,9 +547,9 @@ public class Hangman {
                 if (answer.contains("j")) {
                     rightAnswer('j');
                 } else {
-                    //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
+                    
                 }
             }
         });
@@ -576,7 +562,7 @@ public class Hangman {
                 } else {
                     //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -589,7 +575,7 @@ public class Hangman {
                 } else {
                     //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -602,7 +588,7 @@ public class Hangman {
                 } else {
                     //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -615,7 +601,7 @@ public class Hangman {
                 } else {
                     //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -628,7 +614,7 @@ public class Hangman {
                 } else {
                     //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -641,7 +627,7 @@ public class Hangman {
                 } else {
                     //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -654,7 +640,7 @@ public class Hangman {
                 } else {
                     //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -667,7 +653,7 @@ public class Hangman {
                 } else {
                     //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -680,7 +666,7 @@ public class Hangman {
                 } else {
                     //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -693,7 +679,7 @@ public class Hangman {
                 } else {
                     //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -706,7 +692,7 @@ public class Hangman {
                 } else {
                     //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -719,7 +705,7 @@ public class Hangman {
                 } else {
                     //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -732,7 +718,7 @@ public class Hangman {
                 } else {
                     //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -745,7 +731,7 @@ public class Hangman {
                 } else {
                     //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -758,7 +744,7 @@ public class Hangman {
                 } else {
                     //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
@@ -771,7 +757,7 @@ public class Hangman {
                 } else {
                     //p.checker = true;
                     currentScore -= 10;
-                    p.repaint(0, 100, 75, 260, 135);
+                    pp.repaint(0, 100, 25, 260, 135);
                 }
             }
         });
