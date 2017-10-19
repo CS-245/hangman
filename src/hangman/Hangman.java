@@ -18,6 +18,10 @@ import java.util.Random;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 
 public class Hangman {
@@ -25,6 +29,7 @@ public class Hangman {
     public static int currentScore = 100;
     static String answer;
     static String displayedAnswer;
+    static String displayHighScores;
 
     JFrame mainFr = new JFrame("Hangman");
     //a CardLayout is like a stack of cards, where only the top card is visible at a time.
@@ -38,12 +43,13 @@ public class Hangman {
     JPanel highScorePg = new JPanel(new BorderLayout());
     JPanel gamePg = new JPanel();
     JPanel scorePg = new JPanel();
+    JPanel bubblePg = new JPanel();
     Painter p = new Painter();
-
+    
     // constuctor
     // purpose: create windows that make the Hangman game
     Hangman() {
-
+                
         //Timer
         final DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         int interval = 1000; // 1000 ms
@@ -92,6 +98,7 @@ public class Hangman {
         final JLabel yourScTitle = new JLabel("Your Score");
         JLabel scoreText = new JLabel(Integer.toString(currentScore));
         JLabel answerText = new JLabel(displayedAnswer);
+        JLabel highScores = new JLabel(displayHighScores);
         final JLabel hangmanTitle = new JLabel("Hangman");
 
         titleText.setFont(new Font("Serif", Font.BOLD, 30));
@@ -101,7 +108,11 @@ public class Hangman {
         yourScTitle.setFont(new Font("Serif", Font.BOLD, 35));
         scoreText.setFont(new Font("Serif", Font.PLAIN, 20));
         answerText.setFont(new Font("Serif", Font.BOLD, 35));
+        highScores.setFont(new Font("Serif", Font.BOLD, 20));
         hangmanTitle.setFont(new Font("AR DESTINE", Font.PLAIN, 35));
+        
+        //Text Field
+        JTextField highScoreName = new JTextField();
 
         //Pasta image
         ImageIcon pastaIcon = new ImageIcon("Images/pasta.png");
@@ -143,22 +154,13 @@ public class Hangman {
         JButton letterZ = new JButton("Z");
 
         //Positioning
-        titleText.setBounds(140,50,500,150);
-        teamText.setBounds(230,300,200,50);
-        playButton.setBounds(400,185,150,30);  
-        highScoreButton.setBounds(400,235,150,30);  
-        creditsButton.setBounds(400,285,150,30);
-        backButtonHS.setBounds(25,300,95,30);   
-        backButtonCF.setBounds(25,300,95,30);
         jennaBarrett.setBounds(250,125,200,100);
         lennyYang.setBounds(250,150,200,100);
         rachelFrodsham.setBounds(250,175,200,100);
         pastaImage.setBounds(10, 0, 400, 400);
         titleCredit.setBounds(250,75,100,100);
-//        highScores.setBounds(250,10,300,150);
         hangmanTitle.setBounds(25,-10,500,100);        
         skipButton.setBounds(400,100,100,30);
-//        scoreTitle.setBounds(200, -10, 500, 100);
         scoreText.setBounds(250, 100, 500, 100);
         endButton.setBounds(400,285,150,30);
         answerText.setBounds(150,175,300,100);
@@ -187,7 +189,9 @@ public class Hangman {
         letterW.setBounds(400,310,30,30);
         letterX.setBounds(440,310,30,30);
         letterY.setBounds(480,310,30,30);
-        letterZ.setBounds(520,310,30,30);        
+        letterZ.setBounds(520,310,30,30);    
+        highScoreName.setBounds(50,100, 100,30);  
+
                 
         //setting margins
         letterA.setMargin(new Insets(0, 0, 0, 0));
@@ -272,7 +276,7 @@ public class Hangman {
         backButtonHS.setAlignmentX(Component.CENTER_ALIGNMENT);
         highScorePg.add(Box.createRigidArea(new Dimension(0,25)));
         highScorePg.add(highScTitle);
-        highScorePg.add(Box.createRigidArea(new Dimension(0,250)));
+        highScorePg.add(highScores);
         highScorePg.add(backButtonHS);
         
         //Game Page
@@ -314,14 +318,16 @@ public class Hangman {
         //with internal panels for extra formatting
         scorePg.setLayout(new BoxLayout(scorePg, BoxLayout.Y_AXIS));
         yourScTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
-        scoreText.setAlignmentX(Component.CENTER_ALIGNMENT);
+//        scoreText.setAlignmentX(Component.CENTER_ALIGNMENT);
         creditsButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         scorePg.add(Box.createRigidArea(new Dimension(0,25))); //creates padding
         scorePg.add(yourScTitle);
-        scorePg.add(Box.createRigidArea(new Dimension(0,200)));
+        scorePg.add(highScoreName);
         scorePg.add(scoreText);
-        scorePg.add(Box.createRigidArea(new Dimension(0,200)));
         scorePg.add(endButton);
+        scorePg.add(Box.createRigidArea(new Dimension(0,300))); //creates padding
+
+        
         
         //Pages and Frame Set Up
         pages.add(titlePg, "titlePg");           //the string is the label of the page, can be anything
@@ -330,6 +336,7 @@ public class Hangman {
         pages.add(highScorePg, "highScorePg");
         pages.add(gamePg, "gamePg");
         pages.add(scorePg, "scorePg");
+        pages.add(bubblePg, "bubblePg");
         cl.show(pages, "titlePg"); //first page shown is title page
         
         mainFr.add(pages);
@@ -340,12 +347,13 @@ public class Hangman {
         
 
         //Listeners
-        new java.util.Timer().schedule(new java.util.TimerTask() {
+        new java.util.Timer().schedule(
+            new java.util.TimerTask() {
             @Override
-            public void run() {
-                cl.show(pages, "menuPg"); //switches to menu
-            }
-        },
+                public void run() {
+                    cl.show(pages, "menuPg"); //switches to menu
+                }
+            },
                 4500
         );
 
@@ -423,8 +431,15 @@ public class Hangman {
         });
 
         endButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e){
                 cl.show(pages, "menuPg");
+                String hSN = highScoreName.getText(); 
+                String combinedScore = hSN + " " + currentScore;
+                try {
+                    writeHighScore("highscores.txt", combinedScore);
+                } catch (IOException ex) {
+                    Logger.getLogger(Hangman.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 currentScore = 100;
             }
         });
@@ -766,11 +781,19 @@ public class Hangman {
         Timer updateFrames = new Timer(1, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                
                 answerText.setText(displayedAnswer);
                 String numberAsString = Integer.toString(currentScore);
                 scoreText.setText(numberAsString);
                 String withoutSpaces = displayedAnswer.replace(" ", "");
-
+                
+                try {
+                    printHighScores();
+                } catch (IOException ex) {
+                    Logger.getLogger(Hangman.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                highScores.setText(displayHighScores);
+                
                 if (withoutSpaces.equals(answer)) {
                     cl.show(pages, "scorePg");
                     Random rand = new Random();
@@ -877,8 +900,50 @@ public class Hangman {
         }
         displayedAnswer = newAns;
     }
+    
+    public static void printHighScores() throws IOException{
+        
+        int count = 0;
+        FileReader fr = new FileReader("highscores.txt"); 
+        ArrayList<String> list = new ArrayList<String>();
+        try (BufferedReader br = new BufferedReader(fr))
+        {
 
-    public static void main(String[] args) throws InterruptedException {
+            String sCurrentLine;
+            while ((sCurrentLine = br.readLine()) != null) {
+                list.add(sCurrentLine);
+                count++;
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } 
+                
+        String[][] tokens = new String[count][];
+        
+        for(int z = 0; z < tokens.length; z++){
+            tokens[z] = (list.get(z)).split(" ", -1);
+        }
+
+        String newHS = "";
+        for(int x = 0; x < tokens.length; x++){
+            String highScores = tokens[x][0] + " " + tokens[x][1] + "<br/>";
+            newHS = newHS + highScores;
+        }
+        String combinedString = "<html>" + newHS + "<html>";
+        
+        displayHighScores = combinedString;
+    }
+    
+    public static void writeHighScore(String file, String text)throws IOException{
+        
+        FileWriter fw = new FileWriter(file, true);
+        fw.write(text + "\n");
+        fw.close();
+    } 
+
+    public static void main(String[] args) throws InterruptedException, IOException {
+        
         new Hangman();
     }
 }
