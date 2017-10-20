@@ -3,7 +3,7 @@
  * authors: Lenny Yang, Rachel Frodsham, Jenna Barrett
  * class: CS245 – Graphic User Interface (GUI)
  *
- * assignment: Point and Click Game – v.1.0
+ * assignment: Point and Click Game – v.1.2
  * date last modified: 10/19/2017
  *
  * purpose: This program creates the hangman game with Java code
@@ -19,9 +19,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import javax.swing.BorderFactory;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+
 
 public class Hangman {
 
@@ -34,7 +37,7 @@ public class Hangman {
     static String answer;
     static String displayedAnswer;
     static String displayHighScores;
-	static String color;
+    static String color;
     static String color2;
     static Color purple = new Color(198, 24, 186);
     static int[][] coordinates = new int[5][10];
@@ -67,8 +70,10 @@ public class Hangman {
     JLabel scoreText = new JLabel(Integer.toString(currentScore));
     static JLabel answerText = new JLabel(displayedAnswer);
     JLabel highScores = new JLabel(displayHighScores);
+    JLabel bubbleText = new JLabel(color);
     final JLabel hangmanTitle = new JLabel("Hangman");
-    
+    final JLabel bubbleGameTitle = new JLabel("Bubble Game");
+
     // constuctor
     // purpose: create windows that make the Hangman game
     Hangman() {
@@ -254,7 +259,7 @@ public class Hangman {
         JButton letterX = new JButton("X");
         JButton letterY = new JButton("Y");
         JButton letterZ = new JButton("Z");
-		JButton redButton = new JButton();
+        JButton redButton = new JButton();
         JButton yellowButton = new JButton();
         JButton blueButton = new JButton();
         JButton greenButton = new JButton();
@@ -265,6 +270,19 @@ public class Hangman {
         blueButton.setBackground(Color.blue);
         greenButton.setBackground(Color.green);
         purpleButton.setBackground(purple);
+        
+        redButton.setOpaque(true);
+        yellowButton.setOpaque(true);
+        blueButton.setOpaque(true);
+        greenButton.setOpaque(true);
+        purpleButton.setOpaque(true);
+
+        redButton.setBorderPainted(false);  
+        yellowButton.setBorderPainted(false);  
+        blueButton.setBorderPainted(false);  
+        greenButton.setBorderPainted(false);  
+        purpleButton.setBorderPainted(false);  
+        
                 
         //setting margins
         letterA.setMargin(new Insets(0, 0, 0, 0));
@@ -294,7 +312,11 @@ public class Hangman {
         letterY.setMargin(new Insets(0, 0, 0, 0));
         letterZ.setMargin(new Insets(0, 0, 0, 0));
         
-        //Positioning
+        //Positioning        
+        
+        bubbleText.setBounds(350,-10,500,100);
+        bubbleGameTitle.setBounds(25,-10,500,100); 
+        skipButton.setBounds(400,100,100,30);
         answerText.setBounds(150,175,300,100);
         letterA.setBounds(40,275,30,30);
         letterB.setBounds(80,275,30,30);
@@ -322,7 +344,7 @@ public class Hangman {
         letterX.setBounds(440,310,30,30);
         letterY.setBounds(480,310,30,30);
         letterZ.setBounds(520,310,30,30);    
-		redButton.setBounds(50,230,100,100);
+        redButton.setBounds(50,230,100,100);
         yellowButton.setBounds(450,190,100,100);
         blueButton.setBounds(290,100,100,100);
         greenButton.setBounds(235,250,100,100);
@@ -333,6 +355,7 @@ public class Hangman {
         titlePg.setBackground(new Color(255,255,200)); //rgb
         titlePg.setLayout(new BoxLayout(titlePg, BoxLayout.Y_AXIS));
         titleText.setAlignmentX(Component.CENTER_ALIGNMENT);
+        titlePg.add(Box.createRigidArea(new Dimension(0,25)));
         titlePg.add(titleText);
         titlePg.add(Box.createVerticalGlue()); //sticks elements at bottom
         teamText.setBorder(BorderFactory.createEmptyBorder(0, 0, 50, 0)); //to add padding, U L D R
@@ -378,13 +401,16 @@ public class Hangman {
         creditsPg.add(backButtonCF);
         
         //High Score Page uses boxlayout
-        highScorePg.setLayout(new BoxLayout(highScorePg, BoxLayout.Y_AXIS));
+        highScorePg.setLayout(new BorderLayout());
         highScTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
+//        highScores.setAlignmentX(Component.CENTER_ALIGNMENT);
+        highScTitle.setBorder(BorderFactory.createEmptyBorder(5, 250, 0, 0));
+        highScores.setBorder(BorderFactory.createEmptyBorder(0, 260, 0, 0));
         backButtonHS.setAlignmentX(Component.CENTER_ALIGNMENT);
-        highScorePg.add(Box.createRigidArea(new Dimension(0,25)));
-        highScorePg.add(highScTitle);
-        highScorePg.add(highScores);
-        highScorePg.add(backButtonHS);
+//        highScorePg.add(Box.createRigidArea(new Dimension(0,25)));
+        highScorePg.add(highScTitle, BorderLayout.NORTH);
+        highScorePg.add(highScores, BorderLayout.CENTER);
+        highScorePg.add(backButtonHS, BorderLayout.SOUTH);
         
         //Game Page uses borderlayout with flowlayout for top
         gamePg.setLayout(new BorderLayout());
@@ -392,7 +418,7 @@ public class Hangman {
         time.setBorder(BorderFactory.createEmptyBorder(0, 200, 0, 10)); //to add padding, U L D R
         top.add(hangmanTitle);
         top.add(time);
-        top.add(skipButton);
+        gamePg.add(skipButton);
         gamePg.add(top, BorderLayout.NORTH);
         gamePg.add(answerText);
         gamePg.add(letterA);
@@ -510,9 +536,11 @@ public class Hangman {
         skipButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 currentScore = 0;
-                cl.show(pages, "bubblePg");
+                cl.show(pages, "scorePg");
+                
                 Random rand = new Random();
                 int value = rand.nextInt(5);
+
                 //choosing a word
                 answer = wordBank[value];
 
@@ -553,12 +581,14 @@ public class Hangman {
         endButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 cl.show(pages, "menuPg");
-                String hSN = highScoreName.getText(); 
-                String combinedScore = hSN + " " + currentScore;
-                try {
-                    writeHighScore("highscores.txt", combinedScore);
-                } catch (IOException ex) {
-                    Logger.getLogger(Hangman.class.getName()).log(Level.SEVERE, null, ex);
+                if (currentScore != 0){
+                    String hSN = highScoreName.getText(); 
+                    String combinedScore = hSN + " " + currentScore;
+                    try {
+                        writeHighScore("highscores.txt", combinedScore);
+                    } catch (IOException ex) {
+                        Logger.getLogger(Hangman.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
                 currentScore = 100;
             }
@@ -1031,6 +1061,7 @@ public class Hangman {
                 }
             }
         });
+        
         greenButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 bubbleRound++;
@@ -1082,6 +1113,7 @@ public class Hangman {
                 }
             }
         });
+        
         purpleButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 bubbleRound++;

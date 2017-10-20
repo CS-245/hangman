@@ -3,5 +3,8 @@ Lenny 90
 Wow 0
 LEN 70
 pol 40
- 40
 Lenny 90
+AYY 100
+ 90
+ 200
+ 90
