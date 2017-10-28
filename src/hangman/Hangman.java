@@ -55,7 +55,7 @@ public class Hangman {
     JPanel gamePg = new JPanel();
     JPanel scorePg = new JPanel();
     JPanel bubblePg = new JPanel();
-    JPanel sudokuPg = newJpanel();
+    JPanel sudokuPg = new Jpanel();
     
     PaintPanel pp = new PaintPanel();
     
