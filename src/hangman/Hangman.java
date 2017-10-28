@@ -55,6 +55,7 @@ public class Hangman {
     JPanel gamePg = new JPanel();
     JPanel scorePg = new JPanel();
     JPanel bubblePg = new JPanel();
+    JPanel sudokuPg = newJpanel();
     
     PaintPanel pp = new PaintPanel();
     
@@ -73,6 +74,7 @@ public class Hangman {
     JLabel bubbleText = new JLabel(color);
     final JLabel hangmanTitle = new JLabel("Hangman");
     final JLabel bubbleGameTitle = new JLabel("Bubble Game");
+    final JLabel sudokuTitle = new JLabel("Sudoku");
 
     // constuctor
     // purpose: create windows that make the Hangman game
@@ -194,6 +196,7 @@ public class Hangman {
         hangmanTitle.setFont(new Font("AR DESTINE", Font.PLAIN, 35));
         bubbleGameTitle.setFont(new Font("AR DESTINE", Font.PLAIN, 35));
         bubbleText.setFont(new Font("AR DESTINE", Font.PLAIN, 35));
+	sudokuTitle.setFont(new Font("AR DESTINE", Font.PLAIN, 35));
         
         switch(color2){
             case "Red":{
@@ -264,6 +267,8 @@ public class Hangman {
         JButton blueButton = new JButton();
         JButton greenButton = new JButton();
         JButton purpleButton = new JButton();
+	JButton submit = new JButton("Submit");
+	JButton quit = new JButton("Quit");
         
         redButton.setBackground(Color.red);
         yellowButton.setBackground(Color.yellow);
@@ -349,6 +354,8 @@ public class Hangman {
         blueButton.setBounds(290,100,100,100);
         greenButton.setBounds(235,250,100,100);
         purpleButton.setBounds(120,90,100,100);
+	submit.setBounds(100,100,100,30);
+	quit.setBounds(400,100,100,30);
         
         
         //Title Page uses BoxLayout
@@ -459,6 +466,11 @@ public class Hangman {
         bubblePg.add(greenButton);
         bubblePg.add(purpleButton);
         //bubblePg.add(currentScore);
+	    
+	//sudoku page
+	sudokuPg.add(sudokuTitle);
+	sudokuPg.add(submit);
+	sudokuPg.add(quit);
         
         
         //Score Page uses BoxLayout
@@ -483,6 +495,7 @@ public class Hangman {
         pages.add(gamePg, "gamePg");
         pages.add(scorePg, "scorePg");
         pages.add(bubblePg, "bubblePg");
+	pages.add(sudokuPg, "sudokuPg")
         cl.show(pages, "titlePg"); //first page shown is title page
         
         mainFr.add(pages);
