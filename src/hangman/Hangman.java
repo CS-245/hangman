@@ -79,7 +79,7 @@ public class Hangman {
     final JLabel hangmanTitle = new JLabel("Hangman");
     final JLabel bubbleGameTitle = new JLabel("Bubble Game");
     final JLabel sudokuTitle = new JLabel("Sudoku");
-    
+    JLabel scoreToDisplay = new JLabel(String.valueOf(currentScore));
 
     // constuctor
     // purpose: create windows that make the Hangman game
@@ -748,8 +748,10 @@ public class Hangman {
         gamePg.setLayout(new BorderLayout());
         JPanel top = new JPanel();
         time.setBorder(BorderFactory.createEmptyBorder(0, 200, 0, 10)); //to add padding, U L D R
+        scoreToDisplay.setBorder(BorderFactory.createEmptyBorder(0, 0, 300, 0)); //to add padding, U L D R
         top.add(hangmanTitle);
         top.add(time);
+        gamePg.add(scoreToDisplay, BorderLayout.EAST);
         gamePg.add(scoreText);
         gamePg.add(skipButton);
         gamePg.add(top, BorderLayout.NORTH);
@@ -781,9 +783,6 @@ public class Hangman {
         gamePg.add(letterY);
         gamePg.add(letterZ);
         gamePg.add(pp);
-	JLabel scoreToDisplay = new JLabel(currentScore);
-	scoreToDisplay.setBorder(BorderFactory.createEmptyBorder(0, 0, 300, 0)); //to add padding, U L D R
-	gamePg.add(scoreToDisplay, BorderLayout.EAST;
 
 	//Bubble Game page
         bubblePg.setLayout(null);
@@ -794,7 +793,7 @@ public class Hangman {
         bubblePg.add(blueButton);
         bubblePg.add(greenButton);
         bubblePg.add(purpleButton);
-	scoreToDisplay.setText(currentScore);
+	scoreToDisplay.setText(String.valueOf(currentScore));
 	scoreToDisplay.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0)); //gets rid of earlier padding
 	scoreToDisplay.setLocation(550, 10);
         bubblePg.add(scoreToDisplay);
@@ -887,7 +886,7 @@ public class Hangman {
         sudokuPg.add(sudoku88);
 	PaintSudoku ps = new PaintSudoku();
 	sudokuPg.add(ps);
-	scoreToDisplay.setText(currentScore);
+	scoreToDisplay.setText(String.valueOf(currentScore));
 	sudokuPg.add(scoreToDisplay);
         
         //Score Page uses BoxLayout
@@ -966,7 +965,7 @@ public class Hangman {
         skipButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 currentScore = 0;
-                cl.show(pages, "scorePg");
+                cl.show(pages, "bubblePg");
                 
                 Random rand = new Random();
                 int value = rand.nextInt(5);

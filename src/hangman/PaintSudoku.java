@@ -1,3 +1,5 @@
+package hangman;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.BasicStroke;
@@ -6,7 +8,6 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 public class PaintSudoku extends JPanel {
-
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
