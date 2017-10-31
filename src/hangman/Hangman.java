@@ -229,12 +229,11 @@ public class Hangman {
         //Text Field
         NumberFormat format;
         format = NumberFormat.getInstance();
-        NumberFormatter formatter;
-        formatter = new NumberFormatter(format);
+        format.setMaximumIntegerDigits(1);
 
         JFormattedTextField highScoreName = new JFormattedTextField();
         JTextField sudoku00=new JTextField();
-        JTextField sudoku01=new JTextField();
+        JFormattedTextField sudoku01=new JFormattedTextField(format);
         JTextField sudoku02=new JTextField();
         JTextField sudoku03=new JTextField();
         JTextField sudoku04=new JTextField();
@@ -315,62 +314,62 @@ public class Hangman {
         JTextField sudoku87=new JTextField();
         JTextField sudoku88=new JTextField();
 	
-	    
 	//sudoku hints    
-	sudoku00.setText("8");
+	sudoku00.setText(" 8");
         sudoku00.setEditable(false);
-        sudoku03.setText("4");
+        sudoku03.setText(" 4");
         sudoku03.setEditable(false);
-        sudoku05.setText("6");
+        sudoku05.setText(" 6");
         sudoku05.setEditable(false);
-        sudoku08.setText("7");
+        sudoku08.setText(" 7");
         sudoku08.setEditable(false);
-        sudoku16.setText("4");
+        sudoku16.setText(" 4");
         sudoku16.setEditable(false);
-        sudoku21.setText("1");
+        sudoku21.setText(" 1");
         sudoku21.setEditable(false);
-        sudoku26.setText("6");
+        sudoku26.setText(" 6");
         sudoku26.setEditable(false);
-        sudoku27.setText("5");
+        sudoku27.setText(" 5");
         sudoku27.setEditable(false);
-        sudoku30.setText("5");
+        sudoku30.setText(" 5");
         sudoku30.setEditable(false);
-        sudoku32.setText("9");
+        sudoku32.setText(" 9");
         sudoku32.setEditable(false);
-        sudoku34.setText("3");
+        sudoku34.setText(" 3");
         sudoku34.setEditable(false);
-        sudoku36.setText("7");
+        sudoku36.setText(" 7");
         sudoku36.setEditable(false);
-        sudoku37.setText("8");
+        sudoku37.setText(" 8");
         sudoku37.setEditable(false);
-        sudoku44.setText("7");
+        sudoku44.setText(" 7");
         sudoku44.setEditable(false);
-        sudoku51.setText("4");
+        sudoku51.setText(" 4");
         sudoku51.setEditable(false);
-        sudoku52.setText("8");
+        sudoku52.setText(" 8");
         sudoku52.setEditable(false);
-        sudoku54.setText("2");
+        sudoku54.setText(" 2");
         sudoku54.setEditable(false);
-        sudoku56.setText("1");
+        sudoku56.setText(" 1");
         sudoku56.setEditable(false);
-        sudoku58.setText("3");
+        sudoku58.setText(" 3");
         sudoku58.setEditable(false);
-        sudoku61.setText("5");
+        sudoku61.setText(" 5");
         sudoku61.setEditable(false);
-        sudoku62.setText("2");
+        sudoku62.setText(" 2");
         sudoku62.setEditable(false);
-        sudoku67.setText("9");
+        sudoku67.setText(" 9");
         sudoku67.setEditable(false);
-        sudoku72.setText("1");
+        sudoku72.setText(" 1");
         sudoku72.setEditable(false);
-        sudoku80.setText("3");
+        sudoku80.setText(" 3");
         sudoku80.setEditable(false);
-        sudoku83.setText("9");
+        sudoku83.setText(" 9");
         sudoku83.setEditable(false);
-        sudoku85.setText("2");
+        sudoku85.setText(" 2");
         sudoku85.setEditable(false);
-        sudoku88.setText("5");
+        sudoku88.setText(" 5");
         sudoku88.setEditable(false);
+        
         
         //Pasta image
         ImageIcon pastaIcon = new ImageIcon("Images/pasta.png");
