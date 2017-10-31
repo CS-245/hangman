@@ -134,6 +134,7 @@ public class Hangman {
         color = colors[colorValue];
         colorValue = randColor.nextInt(5);
         color2 = colors[colorValue];
+	bubbleText.setText(color);
         
         
         //color button positions
@@ -532,10 +533,10 @@ public class Hangman {
         greenButton.setBounds(235,250,100,100);
         purpleButton.setBounds(120,90,100,100);
         redButton.setDiameter(100); //this sets the button size
-//        yellowButton.setDiameter(100);
-//        blueButton.setDiameter(100);
-//        greenButton.setDiameter(100);
-//        purpleButton.setDiameter(100);
+        yellowButton.setDiameter(100);
+        blueButton.setDiameter(100);
+        greenButton.setDiameter(100);
+        purpleButton.setDiameter(100);
 	    
 	submit.setBounds(35,310,100,30);
 	quit.setBounds(465,310,100,30);
