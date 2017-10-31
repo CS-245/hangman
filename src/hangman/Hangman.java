@@ -876,6 +876,8 @@ public class Hangman {
         sudokuPg.add(sudoku86);
         sudokuPg.add(sudoku87);
         sudokuPg.add(sudoku88);
+	PaintSudoku ps = new PaintSudoku();
+	sudokuPg.add(ps);
         
         //Score Page uses BoxLayout
         scorePg.setLayout(new BoxLayout(scorePg, BoxLayout.Y_AXIS));
