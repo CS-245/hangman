@@ -1429,7 +1429,7 @@ public class Hangman {
       
 
         //Hangman Set Up
-        Timer updateFrames = new Timer(1, new ActionListener() {
+        Timer updateFrames = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 answerText.setText(displayedAnswer);
@@ -1526,6 +1526,10 @@ public class Hangman {
 
             }
         });
+        
+        KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager(); 
+        manager.addKeyEventDispatcher(new MyDispatcher());
+ 
         mainFr.setVisible(true);
         updateFrames.start();
 
@@ -1592,6 +1596,28 @@ public class Hangman {
         fw.write(text + "\n");
         fw.close();
     } 
+    
+    private class MyDispatcher implements KeyEventDispatcher {
+        @Override
+        public boolean dispatchKeyEvent(KeyEvent e) {
+            if (e.getID() == KeyEvent.KEY_PRESSED) {
+//                System.out.println("tester");
+            } 
+            else if (e.getID() == KeyEvent.KEY_RELEASED) {
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    mainFr.dispatchEvent(new WindowEvent(mainFr, WindowEvent.WINDOW_CLOSING));
+                }      
+                else if (e.getKeyCode() == KeyEvent.VK_F1){
+                    JOptionPane.showMessageDialog(mainFr, "<html>Jenna Barret, 010805821<br>Lenny Yang, 010265034<br>Rachel Frodsham, 00922783<br>Swing Project v1.2<br>Fall 2017<html>");
+                }
+            }
+            else if (e.getID() == KeyEvent.KEY_TYPED) {
+//                System.out.println("3test3");
+            }
+            return false;
+        }
+    }
+
 
     public static void main(String[] args) throws InterruptedException, IOException {
         
