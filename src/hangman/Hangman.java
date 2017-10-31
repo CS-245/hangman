@@ -781,6 +781,9 @@ public class Hangman {
         gamePg.add(letterY);
         gamePg.add(letterZ);
         gamePg.add(pp);
+	JLabel scoreToDisplay = new JLabel(currentScore);
+	scoreToDisplay.setBorder(BorderFactory.createEmptyBorder(0, 0, 300, 0)); //to add padding, U L D R
+	gamePg.add(scoreToDisplay, BorderLayout.EAST;
 
 	//Bubble Game page
         bubblePg.setLayout(null);
@@ -791,7 +794,10 @@ public class Hangman {
         bubblePg.add(blueButton);
         bubblePg.add(greenButton);
         bubblePg.add(purpleButton);
-        //bubblePg.add(currentScore);
+	scoreToDisplay.setText(currentScore);
+	scoreToDisplay.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0)); //gets rid of earlier padding
+	scoreToDisplay.setLocation(550, 10);
+        bubblePg.add(scoreToDisplay);
 	    
 	//Sudoku page
         sudokuPg.setLayout(null);
@@ -881,6 +887,8 @@ public class Hangman {
         sudokuPg.add(sudoku88);
 	PaintSudoku ps = new PaintSudoku();
 	sudokuPg.add(ps);
+	scoreToDisplay.setText(currentScore);
+	sudokuPg.add(scoreToDisplay);
         
         //Score Page uses BoxLayout
         scorePg.setLayout(new BoxLayout(scorePg, BoxLayout.Y_AXIS));
