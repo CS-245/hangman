@@ -344,32 +344,21 @@ public class Hangman {
         JButton letterW = new JButton("W");
         JButton letterX = new JButton("X");
         JButton letterY = new JButton("Y");
-        JButton letterZ = new JButton("Z");
-        JButton redButton = new JButton();
-        JButton yellowButton = new JButton();
-        JButton blueButton = new JButton();
-        JButton greenButton = new JButton();
-        JButton purpleButton = new JButton();
-	JButton submit = new JButton("Submit");
-	JButton quit = new JButton("Quit");
+ 	JButton letterZ = new JButton("Z");
         
+        RoundButton redButton = new RoundButton();
+        RoundButton yellowButton = new RoundButton();
+        RoundButton blueButton = new RoundButton();
+        RoundButton greenButton = new RoundButton();
+        RoundButton purpleButton = new RoundButton();        
         redButton.setBackground(Color.red);
         yellowButton.setBackground(Color.yellow);
         blueButton.setBackground(Color.blue);
         greenButton.setBackground(Color.green);
         purpleButton.setBackground(purple);
         
-        redButton.setOpaque(true);
-        yellowButton.setOpaque(true);
-        blueButton.setOpaque(true);
-        greenButton.setOpaque(true);
-        purpleButton.setOpaque(true);
-
-        redButton.setBorderPainted(false);  
-        yellowButton.setBorderPainted(false);  
-        blueButton.setBorderPainted(false);  
-        greenButton.setBorderPainted(false);  
-        purpleButton.setBorderPainted(false);  
+        JButton submit = new JButton("Submit");
+	JButton quit = new JButton("Quit");
         
                 
         //setting margins
@@ -432,12 +421,19 @@ public class Hangman {
         letterW.setBounds(400,310,30,30);
         letterX.setBounds(440,310,30,30);
         letterY.setBounds(480,310,30,30);
-        letterZ.setBounds(520,310,30,30);    
-        redButton.setBounds(50,230,100,100);
+        letterZ.setBounds(520,310,30,30);   
+	    
+        redButton.setBounds(50,230,100,100); //sizes here don't matter
         yellowButton.setBounds(450,190,100,100);
         blueButton.setBounds(290,100,100,100);
         greenButton.setBounds(235,250,100,100);
         purpleButton.setBounds(120,90,100,100);
+        redButton.setDiameter(100); //this sets the button size
+        yellowButton.setDiameter(100);
+        blueButton.setDiameter(100);
+        greenButton.setDiameter(100);
+        purpleButton.setDiameter(100);
+	    
 	submit.setBounds(35,310,100,30);
 	quit.setBounds(465,310,100,30);
         sudoku00.setBounds(155,65,30,30);
