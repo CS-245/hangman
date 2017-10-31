@@ -1522,6 +1522,234 @@ public class Hangman {
                 }
             }
         });
+	    
+	submit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int sudokuScore = 540;
+                boolean correct = true;
+                if(!sudoku01.getText().equals("3")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku02.getText().equals("5")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku04.getText().equals("1")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku06.getText().equals("9")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku07.getText().equals("2")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku10.getText().equals("2")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku11.getText().equals("9")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku12.getText().equals("6")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku13.getText().equals("8")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku14.getText().equals("5")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku15.getText().equals("7")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku17.getText().equals("3")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku18.getText().equals("1")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku20.getText().equals("4")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku22.getText().equals("7")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku23.getText().equals("2")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku24.getText().equals("9")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku25.getText().equals("3")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku28.getText().equals("8")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku31.getText().equals("6")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku33.getText().equals("1")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku35.getText().equals("4")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku38.getText().equals("2")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku40.getText().equals("1")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku41.getText().equals("2")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku42.getText().equals("3")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku43.getText().equals("6")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku45.getText().equals("8")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku46.getText().equals("5")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku47.getText().equals("4")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku48.getText().equals("9")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku50.getText().equals("7")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku53.getText().equals("5")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku55.getText().equals("9")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku57.getText().equals("6")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku60.getText().equals("6")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku63.getText().equals("7")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku64.getText().equals("8")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku65.getText().equals("1")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku66.getText().equals("3")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku68.getText().equals("4")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku70.getText().equals("9")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku71.getText().equals("8")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku73.getText().equals("3")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku74.getText().equals("4")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku75.getText().equals("5")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku76.getText().equals("2")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku77.getText().equals("7")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku78.getText().equals("6")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku81.getText().equals("7")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku82.getText().equals("4")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku84.getText().equals("6")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku86.getText().equals("8")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                if(!sudoku87.getText().equals("1")){
+                    sudokuScore-=10;
+                    correct = false;
+                }
+                
+                currentScore+=sudokuScore;
+                if(correct){
+                    cl.show(pages,"scorePg");
+                }
+            }
+        });
       
 
         //Hangman Set Up
