@@ -232,7 +232,7 @@ public class Hangman {
         format = NumberFormat.getInstance();
         format.setMaximumIntegerDigits(1);
         
-        JTextField highScoreName = new JTextField();
+        JTextField highScoreName = new JTextField("ABC");
         ((AbstractDocument) highScoreName.getDocument()).setDocumentFilter(new StringFilter());
 
         JTextField sudoku00=new JTextField();
