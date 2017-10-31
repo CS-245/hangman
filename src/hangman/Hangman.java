@@ -520,8 +520,7 @@ public class Hangman {
         sudoku86.setBounds(340,340,40,40);
         sudoku87.setBounds(380,340,40,40);
         sudoku88.setBounds(420,340,40,40);
-        
-        
+         
         
         
         //Title Page uses BoxLayout
@@ -576,11 +575,11 @@ public class Hangman {
         //High Score Page uses boxlayout
         highScorePg.setLayout(new BorderLayout());
         highScTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
-//        highScores.setAlignmentX(Component.CENTER_ALIGNMENT);
+//      highScores.setAlignmentX(Component.CENTER_ALIGNMENT);
         highScTitle.setBorder(BorderFactory.createEmptyBorder(5, 250, 0, 0));
         highScores.setBorder(BorderFactory.createEmptyBorder(0, 260, 0, 0));
         backButtonHS.setAlignmentX(Component.CENTER_ALIGNMENT);
-//        highScorePg.add(Box.createRigidArea(new Dimension(0,25)));
+//      highScorePg.add(Box.createRigidArea(new Dimension(0,25)));
         highScorePg.add(highScTitle, BorderLayout.NORTH);
         highScorePg.add(highScores, BorderLayout.CENTER);
         highScorePg.add(backButtonHS, BorderLayout.SOUTH);
@@ -622,7 +621,7 @@ public class Hangman {
         gamePg.add(letterZ);
         gamePg.add(pp);
 
-		//Bubble Game page
+	//Bubble Game page
         bubblePg.setLayout(null);
         bubblePg.add(bubbleGameTitle);
         bubblePg.add(bubbleText);
@@ -633,7 +632,8 @@ public class Hangman {
         bubblePg.add(purpleButton);
         //bubblePg.add(currentScore);
 	    
-	//sudoku page
+	//Sudoku page
+        sudokuPg.setLayout(null);
 	sudokuPg.add(sudokuTitle);
 	sudokuPg.add(submit);
 	sudokuPg.add(quit);
