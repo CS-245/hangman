@@ -19,10 +19,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.text.NumberFormat;
 import javax.swing.BorderFactory;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.text.NumberFormatter;
 
 
 
@@ -224,7 +226,12 @@ public class Hangman {
         }
         
         //Text Field
-        JTextField highScoreName = new JTextField();
+        NumberFormat format;
+        format = NumberFormat.getInstance();
+        NumberFormatter formatter;
+        formatter = new NumberFormatter(format);
+
+        JFormattedTextField highScoreName = new JFormattedTextField();
         JTextField sudoku00=new JTextField();
         JTextField sudoku01=new JTextField();
         JTextField sudoku02=new JTextField();
@@ -525,10 +532,10 @@ public class Hangman {
         greenButton.setBounds(235,250,100,100);
         purpleButton.setBounds(120,90,100,100);
         redButton.setDiameter(100); //this sets the button size
-        yellowButton.setDiameter(100);
-        blueButton.setDiameter(100);
-        greenButton.setDiameter(100);
-        purpleButton.setDiameter(100);
+//        yellowButton.setDiameter(100);
+//        blueButton.setDiameter(100);
+//        greenButton.setDiameter(100);
+//        purpleButton.setDiameter(100);
 	    
 	submit.setBounds(35,310,100,30);
 	quit.setBounds(465,310,100,30);
@@ -683,6 +690,7 @@ public class Hangman {
         time.setBorder(BorderFactory.createEmptyBorder(0, 200, 0, 10)); //to add padding, U L D R
         top.add(hangmanTitle);
         top.add(time);
+        gamePg.add(scoreText);
         gamePg.add(skipButton);
         gamePg.add(top, BorderLayout.NORTH);
         gamePg.add(answerText);
@@ -1311,6 +1319,7 @@ public class Hangman {
                 
                 if (bubbleRound == 5){
                    cl.show(pages, "sudokuPg");
+                   bubbleRound = 0;
                 }
             }
         });
@@ -1363,6 +1372,7 @@ public class Hangman {
                 
                 if (bubbleRound == 5){
                    cl.show(pages, "sudokuPg");
+                   bubbleRound = 0;
                 }
             }
         });
@@ -1414,7 +1424,8 @@ public class Hangman {
                 purpleButton.setBounds(coordinates[value][8],coordinates[value][9],100,100);
                 
                 if (bubbleRound == 5){
-                   cl.show(pages, "sudokuPg");
+                    cl.show(pages, "sudokuPg");
+                    bubbleRound = 0;
                 }
             }
         });
@@ -1466,7 +1477,8 @@ public class Hangman {
                 purpleButton.setBounds(coordinates[value][8],coordinates[value][9],100,100);
                 
                 if (bubbleRound == 5){
-                   cl.show(pages, "sudokuPg");
+                    cl.show(pages, "sudokuPg");
+                    bubbleRound = 0;
                 }
             }
         });
@@ -1518,7 +1530,8 @@ public class Hangman {
                 purpleButton.setBounds(coordinates[value][8],coordinates[value][9],100,100);
                 
                 if (bubbleRound == 5){
-                   cl.show(pages, "sudokuPg");
+                    cl.show(pages, "sudokuPg");
+                    bubbleRound = 0;
                 }
             }
         });
@@ -1750,10 +1763,9 @@ public class Hangman {
                 }
             }
         });
-      
 
         //Hangman Set Up
-        Timer updateFrames = new Timer(1000, new ActionListener() {
+        Timer updateFrames = new Timer(500, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 answerText.setText(displayedAnswer);
@@ -1770,10 +1782,11 @@ public class Hangman {
                 highScores.setText(displayHighScores);
                 
                 if (withoutSpaces.equals(answer)) {
-                    cl.show(pages, "bubblePg");
                     Random rand = new Random();
                     int value = rand.nextInt(5);
                     answer = wordBank[value]; //chooses a word
+
+                    cl.show(pages, "bubblePg");
 
                     displayedAnswer = "";
                     for (int i = 0; i < answer.length(); i++) {
@@ -1925,7 +1938,6 @@ public class Hangman {
         @Override
         public boolean dispatchKeyEvent(KeyEvent e) {
             if (e.getID() == KeyEvent.KEY_PRESSED) {
-//                System.out.println("tester");
             } 
             else if (e.getID() == KeyEvent.KEY_RELEASED) {
                 if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
@@ -1936,7 +1948,6 @@ public class Hangman {
                 }
             }
             else if (e.getID() == KeyEvent.KEY_TYPED) {
-//                System.out.println("3test3");
             }
             return false;
         }
