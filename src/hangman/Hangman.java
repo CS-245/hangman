@@ -24,6 +24,7 @@ import javax.swing.BorderFactory;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.text.AbstractDocument;
 import javax.swing.text.NumberFormatter;
 
 
@@ -230,8 +231,10 @@ public class Hangman {
         NumberFormat format;
         format = NumberFormat.getInstance();
         format.setMaximumIntegerDigits(1);
+        
+        JTextField highScoreName = new JTextField();
+        ((AbstractDocument) highScoreName.getDocument()).setDocumentFilter(new StringFilter());
 
-        JFormattedTextField highScoreName = new JFormattedTextField();
         JTextField sudoku00=new JTextField();
         JFormattedTextField sudoku01=new JFormattedTextField(format);
         JFormattedTextField sudoku02=new JFormattedTextField(format);
