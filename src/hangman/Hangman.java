@@ -4,7 +4,7 @@
  * class: CS245 – Graphic User Interface (GUI)
  *
  * assignment: Point and Click Game – v.1.2
- * date last modified: 10/19/2017
+ * date last modified: 10/30/2017
  *
  * purpose: This program creates the hangman game with Java code
  *
@@ -41,6 +41,7 @@ public class Hangman {
     static String color2;
     static Color purple = new Color(198, 24, 186);
     static int[][] coordinates = new int[5][10];
+    static int[][] sudokuGrid = new int[9][9];
 
     JFrame mainFr = new JFrame("Hangman");
     //a CardLayout is like a stack of cards, where only the top card is visible at a time.
@@ -55,7 +56,7 @@ public class Hangman {
     JPanel gamePg = new JPanel();
     JPanel scorePg = new JPanel();
     JPanel bubblePg = new JPanel();
-    JPanel sudokuPg = new Jpanel();
+    JPanel sudokuPg = new JPanel();
     
     PaintPanel pp = new PaintPanel();
     
@@ -75,6 +76,7 @@ public class Hangman {
     final JLabel hangmanTitle = new JLabel("Hangman");
     final JLabel bubbleGameTitle = new JLabel("Bubble Game");
     final JLabel sudokuTitle = new JLabel("Sudoku");
+    
 
     // constuctor
     // purpose: create windows that make the Hangman game
@@ -223,7 +225,88 @@ public class Hangman {
         
         //Text Field
         JTextField highScoreName = new JTextField();
-
+        JTextField sudoku00=new JTextField();
+        JTextField sudoku01=new JTextField();
+        JTextField sudoku02=new JTextField();
+        JTextField sudoku03=new JTextField();
+        JTextField sudoku04=new JTextField();
+        JTextField sudoku05=new JTextField();
+        JTextField sudoku06=new JTextField();
+        JTextField sudoku07=new JTextField();
+        JTextField sudoku08=new JTextField();
+        JTextField sudoku10=new JTextField();
+        JTextField sudoku11=new JTextField();
+        JTextField sudoku12=new JTextField();
+        JTextField sudoku13=new JTextField();
+        JTextField sudoku14=new JTextField();
+        JTextField sudoku15=new JTextField();
+        JTextField sudoku16=new JTextField();
+        JTextField sudoku17=new JTextField();
+        JTextField sudoku18=new JTextField();
+        JTextField sudoku20=new JTextField();
+        JTextField sudoku21=new JTextField();
+        JTextField sudoku22=new JTextField();
+        JTextField sudoku23=new JTextField();
+        JTextField sudoku24=new JTextField();
+        JTextField sudoku25=new JTextField();
+        JTextField sudoku26=new JTextField();
+        JTextField sudoku27=new JTextField();
+        JTextField sudoku28=new JTextField();
+        JTextField sudoku30=new JTextField();
+        JTextField sudoku31=new JTextField();
+        JTextField sudoku32=new JTextField();
+        JTextField sudoku33=new JTextField();
+        JTextField sudoku34=new JTextField();
+        JTextField sudoku35=new JTextField();
+        JTextField sudoku36=new JTextField();
+        JTextField sudoku37=new JTextField();
+        JTextField sudoku38=new JTextField();
+        JTextField sudoku40=new JTextField();
+        JTextField sudoku41=new JTextField();
+        JTextField sudoku42=new JTextField();
+        JTextField sudoku43=new JTextField();
+        JTextField sudoku44=new JTextField();
+        JTextField sudoku45=new JTextField();
+        JTextField sudoku46=new JTextField();
+        JTextField sudoku47=new JTextField();
+        JTextField sudoku48=new JTextField();
+        JTextField sudoku50=new JTextField();
+        JTextField sudoku51=new JTextField();
+        JTextField sudoku52=new JTextField();
+        JTextField sudoku53=new JTextField();
+        JTextField sudoku54=new JTextField();
+        JTextField sudoku55=new JTextField();
+        JTextField sudoku56=new JTextField();
+        JTextField sudoku57=new JTextField();
+        JTextField sudoku58=new JTextField();
+        JTextField sudoku60=new JTextField();
+        JTextField sudoku61=new JTextField();
+        JTextField sudoku62=new JTextField();
+        JTextField sudoku63=new JTextField();
+        JTextField sudoku64=new JTextField();
+        JTextField sudoku65=new JTextField();
+        JTextField sudoku66=new JTextField();
+        JTextField sudoku67=new JTextField();
+        JTextField sudoku68=new JTextField();
+        JTextField sudoku70=new JTextField();
+        JTextField sudoku71=new JTextField();
+        JTextField sudoku72=new JTextField();
+        JTextField sudoku73=new JTextField();
+        JTextField sudoku74=new JTextField();
+        JTextField sudoku75=new JTextField();
+        JTextField sudoku76=new JTextField();
+        JTextField sudoku77=new JTextField();
+        JTextField sudoku78=new JTextField();
+        JTextField sudoku80=new JTextField();
+        JTextField sudoku81=new JTextField();
+        JTextField sudoku82=new JTextField();
+        JTextField sudoku83=new JTextField();
+        JTextField sudoku84=new JTextField();
+        JTextField sudoku85=new JTextField();
+        JTextField sudoku86=new JTextField();
+        JTextField sudoku87=new JTextField();
+        JTextField sudoku88=new JTextField();
+        
         //Pasta image
         ImageIcon pastaIcon = new ImageIcon("Images/pasta.png");
         JLabel pastaImage = new JLabel(pastaIcon);
@@ -354,8 +437,91 @@ public class Hangman {
         blueButton.setBounds(290,100,100,100);
         greenButton.setBounds(235,250,100,100);
         purpleButton.setBounds(120,90,100,100);
-	submit.setBounds(100,100,100,30);
-	quit.setBounds(400,100,100,30);
+	submit.setBounds(100,310,100,30);
+	quit.setBounds(400,310,100,30);
+        sudoku00.setBounds(100,20,40,40);
+        sudoku01.setBounds(140,20,40,40);
+        sudoku02.setBounds(180,20,40,40);
+        sudoku03.setBounds(220,20,40,40);
+        sudoku04.setBounds(260,20,40,40);
+        sudoku05.setBounds(300,20,40,40);
+        sudoku06.setBounds(340,20,40,40);
+        sudoku07.setBounds(380,20,40,40);
+        sudoku08.setBounds(420,20,40,40);
+        sudoku10.setBounds(100,60,40,40);
+        sudoku11.setBounds(140,60,40,40);
+        sudoku12.setBounds(180,60,40,40);
+        sudoku13.setBounds(220,60,40,40);
+        sudoku14.setBounds(260,60,40,40);
+        sudoku15.setBounds(300,60,40,40);
+        sudoku16.setBounds(340,60,40,40);
+        sudoku17.setBounds(380,60,40,40);
+        sudoku18.setBounds(420,60,40,40);
+        sudoku20.setBounds(100,100,40,40);
+        sudoku21.setBounds(140,100,40,40);
+        sudoku22.setBounds(180,100,40,40);
+        sudoku23.setBounds(220,100,40,40);
+        sudoku24.setBounds(260,100,40,40);
+        sudoku25.setBounds(300,100,40,40);
+        sudoku26.setBounds(340,100,40,40);
+        sudoku27.setBounds(380,100,40,40);
+        sudoku28.setBounds(420,100,40,40);
+        sudoku30.setBounds(100,140,40,40);
+        sudoku31.setBounds(140,140,40,40);
+        sudoku32.setBounds(180,140,40,40);
+        sudoku33.setBounds(220,140,40,40);
+        sudoku34.setBounds(260,140,40,40);
+        sudoku35.setBounds(300,140,40,40);
+        sudoku36.setBounds(340,140,40,40);
+        sudoku37.setBounds(380,140,40,40);
+        sudoku38.setBounds(420,140,40,40);
+        sudoku40.setBounds(100,180,40,40);
+        sudoku41.setBounds(140,180,40,40);
+        sudoku42.setBounds(180,180,40,40);
+        sudoku43.setBounds(220,180,40,40);
+        sudoku44.setBounds(260,180,40,40);
+        sudoku45.setBounds(300,180,40,40);
+        sudoku46.setBounds(340,180,40,40);
+        sudoku47.setBounds(380,180,40,40);
+        sudoku48.setBounds(420,180,40,40);
+        sudoku50.setBounds(100,220,40,40);
+        sudoku51.setBounds(140,220,40,40);
+        sudoku52.setBounds(180,220,40,40);
+        sudoku53.setBounds(220,220,40,40);
+        sudoku54.setBounds(260,220,40,40);
+        sudoku55.setBounds(300,220,40,40);
+        sudoku56.setBounds(340,220,40,40);
+        sudoku57.setBounds(380,220,40,40);
+        sudoku58.setBounds(420,220,40,40);
+        sudoku60.setBounds(100,260,40,40);
+        sudoku61.setBounds(140,260,40,40);
+        sudoku62.setBounds(180,260,40,40);
+        sudoku63.setBounds(220,260,40,40);
+        sudoku64.setBounds(260,260,40,40);
+        sudoku65.setBounds(300,260,40,40);
+        sudoku66.setBounds(340,260,40,40);
+        sudoku67.setBounds(380,260,40,40);
+        sudoku68.setBounds(420,260,40,40);
+        sudoku70.setBounds(100,300,40,40);
+        sudoku71.setBounds(140,300,40,40);
+        sudoku72.setBounds(180,300,40,40);
+        sudoku73.setBounds(220,300,40,40);
+        sudoku74.setBounds(260,300,40,40);
+        sudoku75.setBounds(300,300,40,40);
+        sudoku76.setBounds(340,300,40,40);
+        sudoku77.setBounds(380,300,40,40);
+        sudoku78.setBounds(420,300,40,40);
+        sudoku80.setBounds(100,340,40,40);
+        sudoku81.setBounds(140,340,40,40);
+        sudoku82.setBounds(180,340,40,40);
+        sudoku83.setBounds(220,340,40,40);
+        sudoku84.setBounds(260,340,40,40);
+        sudoku85.setBounds(300,340,40,40);
+        sudoku86.setBounds(340,340,40,40);
+        sudoku87.setBounds(380,340,40,40);
+        sudoku88.setBounds(420,340,40,40);
+        
+        
         
         
         //Title Page uses BoxLayout
@@ -471,7 +637,87 @@ public class Hangman {
 	sudokuPg.add(sudokuTitle);
 	sudokuPg.add(submit);
 	sudokuPg.add(quit);
-        
+        sudokuPg.add(sudoku00);
+        sudokuPg.add(sudoku01);
+        sudokuPg.add(sudoku02);
+        sudokuPg.add(sudoku03);
+        sudokuPg.add(sudoku04);
+        sudokuPg.add(sudoku05);
+        sudokuPg.add(sudoku06);
+        sudokuPg.add(sudoku07);
+        sudokuPg.add(sudoku08);
+        sudokuPg.add(sudoku10);
+        sudokuPg.add(sudoku11);
+        sudokuPg.add(sudoku12);
+        sudokuPg.add(sudoku13);
+        sudokuPg.add(sudoku14);
+        sudokuPg.add(sudoku15);
+        sudokuPg.add(sudoku16);
+        sudokuPg.add(sudoku17);
+        sudokuPg.add(sudoku18);
+        sudokuPg.add(sudoku20);
+        sudokuPg.add(sudoku21);
+        sudokuPg.add(sudoku22);
+        sudokuPg.add(sudoku23);
+        sudokuPg.add(sudoku24);
+        sudokuPg.add(sudoku25);
+        sudokuPg.add(sudoku26);
+        sudokuPg.add(sudoku27);
+        sudokuPg.add(sudoku28);
+        sudokuPg.add(sudoku30);
+        sudokuPg.add(sudoku31);
+        sudokuPg.add(sudoku32);
+        sudokuPg.add(sudoku33);
+        sudokuPg.add(sudoku34);
+        sudokuPg.add(sudoku35);
+        sudokuPg.add(sudoku36);
+        sudokuPg.add(sudoku37);
+        sudokuPg.add(sudoku38);
+        sudokuPg.add(sudoku40);
+        sudokuPg.add(sudoku41);
+        sudokuPg.add(sudoku42);
+        sudokuPg.add(sudoku43);
+        sudokuPg.add(sudoku44);
+        sudokuPg.add(sudoku45);
+        sudokuPg.add(sudoku46);
+        sudokuPg.add(sudoku47);
+        sudokuPg.add(sudoku48);
+        sudokuPg.add(sudoku50);
+        sudokuPg.add(sudoku51);
+        sudokuPg.add(sudoku52);
+        sudokuPg.add(sudoku53);
+        sudokuPg.add(sudoku54);
+        sudokuPg.add(sudoku55);
+        sudokuPg.add(sudoku56);
+        sudokuPg.add(sudoku57);
+        sudokuPg.add(sudoku58);
+        sudokuPg.add(sudoku60);
+        sudokuPg.add(sudoku61);
+        sudokuPg.add(sudoku62);
+        sudokuPg.add(sudoku63);
+        sudokuPg.add(sudoku64);
+        sudokuPg.add(sudoku65);
+        sudokuPg.add(sudoku66);
+        sudokuPg.add(sudoku67);
+        sudokuPg.add(sudoku68);
+        sudokuPg.add(sudoku70);
+        sudokuPg.add(sudoku71);
+        sudokuPg.add(sudoku72);
+        sudokuPg.add(sudoku73);
+        sudokuPg.add(sudoku74);
+        sudokuPg.add(sudoku75);
+        sudokuPg.add(sudoku76);
+        sudokuPg.add(sudoku77);
+        sudokuPg.add(sudoku78);
+        sudokuPg.add(sudoku80);
+        sudokuPg.add(sudoku81);
+        sudokuPg.add(sudoku82);
+        sudokuPg.add(sudoku83);
+        sudokuPg.add(sudoku84);
+        sudokuPg.add(sudoku85);
+        sudokuPg.add(sudoku86);
+        sudokuPg.add(sudoku87);
+        sudokuPg.add(sudoku88);
         
         //Score Page uses BoxLayout
         scorePg.setLayout(new BoxLayout(scorePg, BoxLayout.Y_AXIS));
@@ -495,7 +741,7 @@ public class Hangman {
         pages.add(gamePg, "gamePg");
         pages.add(scorePg, "scorePg");
         pages.add(bubblePg, "bubblePg");
-	pages.add(sudokuPg, "sudokuPg")
+	pages.add(sudokuPg, "sudokuPg");
         cl.show(pages, "titlePg"); //first page shown is title page
         
         mainFr.add(pages);
@@ -966,7 +1212,7 @@ public class Hangman {
                 purpleButton.setBounds(coordinates[value][8],coordinates[value][9],100,100);
                 
                 if (bubbleRound == 5){
-                   cl.show(pages, "scorePg");
+                   cl.show(pages, "sudokuPg");
                 }
             }
         });
@@ -1018,7 +1264,7 @@ public class Hangman {
                 purpleButton.setBounds(coordinates[value][8],coordinates[value][9],100,100);
                 
                 if (bubbleRound == 5){
-                   cl.show(pages, "scorePg");
+                   cl.show(pages, "sudokuPg");
                 }
             }
         });
@@ -1070,7 +1316,7 @@ public class Hangman {
                 purpleButton.setBounds(coordinates[value][8],coordinates[value][9],100,100);
                 
                 if (bubbleRound == 5){
-                   cl.show(pages, "scorePg");
+                   cl.show(pages, "sudokuPg");
                 }
             }
         });
@@ -1122,7 +1368,7 @@ public class Hangman {
                 purpleButton.setBounds(coordinates[value][8],coordinates[value][9],100,100);
                 
                 if (bubbleRound == 5){
-                   cl.show(pages, "scorePg");
+                   cl.show(pages, "sudokuPg");
                 }
             }
         });
@@ -1174,7 +1420,7 @@ public class Hangman {
                 purpleButton.setBounds(coordinates[value][8],coordinates[value][9],100,100);
                 
                 if (bubbleRound == 5){
-                   cl.show(pages, "scorePg");
+                   cl.show(pages, "sudokuPg");
                 }
             }
         });
