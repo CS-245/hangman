@@ -450,10 +450,10 @@ public class Hangman {
         letterY.setToolTipText("Guess the letter 'Y.'");
         letterZ.setToolTipText("Guess the letter 'Z.'");
         redButton.setToolTipText("Press to submit red.");
-        yellowButton.setToolTipText("Press to submit red.");
-        blueButton.setToolTipText("Press to submit red.");
-        greenButton.setToolTipText("Press to submit red.");
-        purpleButton.setToolTipText("Press to submit red.");
+        yellowButton.setToolTipText("Press to submit yellow.");
+        blueButton.setToolTipText("Press to submit blue.");
+        greenButton.setToolTipText("Press to submit green.");
+        purpleButton.setToolTipText("Press to submit purple.");
         submit.setToolTipText("Submit Sudoku board as answer.");
         quit.setToolTipText("Quit Sudoku without submitting."); 
                 
