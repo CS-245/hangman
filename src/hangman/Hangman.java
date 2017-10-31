@@ -849,6 +849,11 @@ public class Hangman {
                 currentScore = 100;
             }
         });
+	    quit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                cl.show(pages, "scorePg");
+            }
+        });
 
 
         //LETTERS
